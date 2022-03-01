@@ -1,4 +1,6 @@
-/* This module may be resused from app to app. Simply include in
+require('./pretrip');
+
+/* This module may be reused from app to app. Simply include in
   app.js with require('/path') */
 
 const mongoose = require('mongoose');
