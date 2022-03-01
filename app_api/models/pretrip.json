@@ -1,0 +1,122 @@
+{
+  "shared": {
+    "SI": "secured and intact/undamaged",
+    "U": "unobstructed",
+    "L": "not leaking",
+    "Blt": "belt driven",
+    "Gr": "gear driven",
+    "BP": "belt play"
+  },
+  "pretrip": {
+    "before_you_start": [],
+    "engine_compartment": [
+      {
+        "passenger_side": [
+          {
+            "hoses_clamps_and_wires": ["SI"]
+          },
+          {
+            "windshield_wiper_fluid": ["cap", "level"]
+          },
+          {
+            "air_filter": [
+              "air flow indicator",
+              "reset air flow indicator",
+              "SI",
+              "U"
+            ]
+          },
+          {
+            "turbocharger": ["SI"]
+          },
+          {
+            "air_conditioner_compressor_I": ["SI", "Blt", "BP"],
+            "alternator": ["Blt", "BP"],
+            "air_conditioner_compressor_II": ["Blt", "BP"],
+            "water_pump": ["Blt", "BP"]
+          },
+          {
+            "radiator_fins": ["SI", "U"]
+          }
+        ]
+      },
+      {
+        "driver_side": [
+          {
+            "hoses_clamps_and_wires": ["SI"]
+          },
+          {
+            "oil_filter_cap": ["SI"]
+          },
+          {
+            "coolant_reservoir": ["cap secured", "check fluid level"]
+          },
+          {
+            "oil_dipstick": ["check oil"]
+          },
+          {
+            "transmission_fluid_dipstick": [
+              "check for fluid",
+              "procedure to check fluid"
+            ]
+          },
+          {
+            "two_filters": ["SI", "L"]
+          },
+          {
+            "air_compressor": ["Gr", "SI"]
+          },
+          {
+            "power_steering_pump": ["Gr", "SI"]
+          },
+          {
+            "power_steering_reservoir": ["cap secured", "check fluid level"]
+          }
+        ]
+      },
+      {
+        "suspension": [
+          {
+            "hydraulic_shock": ["SI", "L", "check bolts at top and bottom"]
+          },
+          { "leaf_springs": ["SI", "aligned"] },
+          { "leaf_spring_shackle_and_hanger": ["SI"] },
+          { "u-bolts": ["SI"] }
+        ]
+      },
+      {
+        "steering_system": [
+          { "steering_shaft": ["SI"] },
+          { "gear_box": ["SI", "L"] },
+          { "pitman_arm": ["SI"] },
+          { "drag_link": ["SI", "check castle nut and pin"] },
+          { "upper_knuckle": ["SI", "check castle nut and pin"] },
+          { "lower_knuckle": ["SI", "check castle nut and pin"] },
+          { "tie_rod": ["SI", "check castle nut and pin"] }
+        ]
+      },
+      {
+        "braking_system": [
+          { "air_line": ["SI", "L"] },
+          { "brake_chamber": ["SI", "L"] },
+          { "push_rod": ["SI"] },
+          {
+            "slack_adjuster": [
+              "SI",
+              "pull slack adjuster. check for less than 1\" of movement and that push rod and slack adjuster meet at 90 degrees"
+            ]
+          },
+          { "s-cam_housing": ["SI", "mention s-cam"] },
+          { "brake_shoes": ["SI"] },
+          { "brake_pads": ["SI", "pads must be over 1/4\" thick"] },
+          { "brake_drum": ["SI", "not warped, cracked, or dirty"] }
+        ]
+      }
+    ],
+    "exterior": [],
+    "passenger_area": [],
+    "cab": [],
+    "air_brakes": [],
+    "lights": []
+  }
+}
