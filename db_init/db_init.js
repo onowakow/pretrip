@@ -1,4 +1,4 @@
-db = connect('mongodb://localhost/pretrip');
+// db = connect('mongodb://localhost/pretrip');
 
 // Run in mongosh with load('filepath')
 
