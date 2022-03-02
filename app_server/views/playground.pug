@@ -2,12 +2,10 @@ extends layout
 
 block content
   .container-md
+    .row
+      .h1.pageTitle="My pretrip"
     .row.g-2
-      .col-sm-4 
-        div.red.unit= 'red'
-      .col-sm-4 
-        div.blue.unit= 'blue'
-      .col-sm-4 
-        div.red.unit= 'red'
-      .col-sm-4 
-        div.blue.unit= 'blue'
+      each title in sectionTitles
+        div.section
+          h3= title
+      

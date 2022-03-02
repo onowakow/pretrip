@@ -7,7 +7,18 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/playground', function (req, res, next) {
-  res.render('playground', { title: 'Test' });
+  res.render('playground', {
+    title: 'Test',
+    sectionTitles: [
+      'Before you start',
+      'Engine compartment',
+      'Exterior',
+      'Interior',
+      "Driver's cab",
+      'Air brakes',
+      'Lights',
+    ],
+  });
 });
 
 module.exports = router;

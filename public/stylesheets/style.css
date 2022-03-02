@@ -1,20 +1,26 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #FFFFFE;
 }
 
 a {
   color: #00B7FF;
 }
 
-.red {
-  background-color: red;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.unit {
+.section {
   padding: 1em;
+  padding-bottom: 5px;
+}
+
+.section:hover {
+  background-color: gold;
+  border-bottom: 3px solid black;
+  margin-bottom: -3px
+}
+
+.pageTitle {
+  font-size: 4em;
+  padding-top: 10%;
+  padding-bottom: 5%;
 }
