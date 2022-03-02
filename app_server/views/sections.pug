@@ -5,5 +5,5 @@ block content
     .h1.pageTitle="My pretrip"
   .row.g-2
     each section in sections
-      div.section
-        a.sectionTitle.h3(href=`/sections/${section._id}`)= section.title
+      a.section(href=`/sections/${section._id}`)
+        sectionTitle.h3= section.title

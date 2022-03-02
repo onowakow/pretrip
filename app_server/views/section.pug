@@ -3,4 +3,17 @@ extends layout
 block content
   .row
     h1.pageTitle=section.title
-  
+  .row
+    form(action="") 
+      each subsection in section.subsections
+        h2= subsection.title
+        each component in subsection.components
+          .component
+            h3.componentTitle= component.title 
+            each attribute in component.attributes
+              .form-check
+                input.form-check-input(type='checkbox' value="" id=component.title)
+                label.form-check-label(for=component.title)
+                  p=attribute
+
+
