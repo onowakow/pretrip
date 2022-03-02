@@ -5,7 +5,7 @@ const apiOptions = {
 };
 
 if (process.env.NODE_ENV === 'production') {
-  apiOptions.server = 'http://uwyobus.herokuapp.com/';
+  apiOptions.server = 'http://uwyobus.herokuapp.com';
 }
 
 const renderSectionsPage = (req, res, responseBody) => {
