@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+const ctrlPretrip = require('../controllers/pretrip');
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/sections', ctrlPretrip.sections);
+
+router.get('/sections/:sectionid', ctrlPretrip.oneSection);
+/*
 router.get('/playground', function (req, res, next) {
   res.render('playground', {
     title: 'Test',
@@ -20,5 +26,6 @@ router.get('/playground', function (req, res, next) {
     ],
   });
 });
+*/
 
 module.exports = router;
