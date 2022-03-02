@@ -5,7 +5,13 @@ require('./pretrip');
 
 const mongoose = require('mongoose');
 
-const dbURI = 'mongodb://localhost/pretrip';
+const password = process.env.MONGODB_PASS;
+
+let dbURI = 'mongodb://localhost/pretrip';
+if (process.env.NODE_ENV === 'production') {
+  dbURI = `mongodb+srv://owen:${password}@cluster0.23a4d.mongodb.net/pretrip?retryWrites=true&w=majority`;
+}
+
 mongoose.connect(dbURI, { useNewUrlParser: true });
 
 mongoose.connection.on('connected', () => {
