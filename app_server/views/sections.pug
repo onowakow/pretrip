@@ -2,8 +2,8 @@ extends layout
 
 block content
   .row
-    .h1.pageTitle="My pretrip"
+    .display-1.pageTitle="My pretrip"
   .row.g-2
     each section in sections
       a.section(href=`/sections/${section._id}`)
-        sectionTitle.h3= section.title
+        .sectionTitle.h3.capitalize= section.title

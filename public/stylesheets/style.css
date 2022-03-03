@@ -27,7 +27,6 @@ a {
 
 .pageTitle {
   border-bottom: 3px solid gold;
-  font-size: 4em;
   padding-top: 10%;
   padding-bottom: .25em;
   margin-bottom: 5%;
@@ -44,9 +43,17 @@ a, a:hover, a:focus, a:active {
 
 .component {
   padding: 10px;
-  border: 2px solid royalblue;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  border-radius: 2px;
+}
+
+.capitalize:first-letter {
+  text-transform: uppercase;
+}
+
+.subsection {
+  margin-bottom: 5em;
 }
 
 .attribute {

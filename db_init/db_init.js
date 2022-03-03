@@ -14,6 +14,11 @@
 
 // testing the idea of subbing out abbr. here
 const SI = 'secured and intact/undamaged';
+const U = 'unobstructed';
+const L = 'not leaking';
+const Blt = 'belt driven';
+const Gr = 'gear driven';
+const BP = 'belt play';
 
 // Clear all sections
 db.sections.deleteMany({});
@@ -31,7 +36,7 @@ db.sections.insertMany([
         components: [
           {
             title: 'hoses, clamps, and wires',
-            attributes: ['SI'],
+            attributes: [SI],
           },
           {
             title: 'windshield wiper fluid',
@@ -42,33 +47,33 @@ db.sections.insertMany([
             attributes: [
               'air flow indicator',
               'reset air flow indicator',
-              'SI',
-              'U',
+              SI,
+              U,
             ],
           },
           {
             title: 'turbocharger',
-            attributes: ['SI'],
+            attributes: [SI],
           },
           {
             title: 'air conditioner compressor I',
-            attributes: ['SI', 'Blt', 'BP'],
+            attributes: [SI, Blt, BP],
           },
           {
             title: 'alternator',
-            attributes: ['Blt', 'BP'],
+            attributes: [SI, Blt, BP],
           },
           {
             title: 'air conditioner compressor II',
-            attributes: ['Blt', 'BP'],
+            attributes: [SI, Blt, BP],
           },
           {
             title: 'water pump',
-            attributes: ['Blt', 'BP'],
+            attributes: [SI, Blt, BP],
           },
           {
             title: 'radiator fins',
-            attributes: ['SI', 'U'],
+            attributes: [SI, U],
           },
         ],
       },
@@ -77,11 +82,11 @@ db.sections.insertMany([
         components: [
           {
             title: 'hoses, clamps, and wires',
-            attributes: ['SI'],
+            attributes: [SI],
           },
           {
             title: 'oil filter cap',
-            attributes: ['SI'],
+            attributes: [SI],
           },
           {
             title: 'coolant reservoir',
@@ -97,15 +102,15 @@ db.sections.insertMany([
           },
           {
             title: 'two filters',
-            attributes: ['SI', 'L'],
+            attributes: [SI, L],
           },
           {
             title: 'air compressor',
-            attributes: ['Gr', 'SI'],
+            attributes: [Gr, SI],
           },
           {
             title: 'power steering pump',
-            attributes: ['Gr', 'SI'],
+            attributes: [Gr, SI],
           },
           {
             title: 'power steering reservoir',
@@ -118,56 +123,56 @@ db.sections.insertMany([
         components: [
           {
             title: 'hydraulic shock',
-            attributes: ['SI', 'L', 'check bolts at top and bottom'],
+            attributes: [SI, L, 'check bolts at top and bottom'],
           },
-          { title: 'leaf springs', attributes: ['SI', 'aligned'] },
-          { title: 'leaf spring shackle and hanger', attributes: ['SI'] },
-          { title: 'u-bolts', attributes: ['SI'] },
+          { title: 'leaf springs', attributes: [SI, 'aligned'] },
+          { title: 'leaf spring shackle and hanger', attributes: [SI] },
+          { title: 'u-bolts', attributes: [SI] },
         ],
       },
       {
         title: 'steering system',
         components: [
-          { title: 'steering shaft', attributes: ['SI'] },
-          { title: 'gear box', attributes: ['SI', 'L'] },
-          { title: 'pitman arm', attributes: ['SI'] },
+          { title: 'steering shaft', attributes: [SI] },
+          { title: 'gear box', attributes: [SI, L] },
+          { title: 'pitman arm', attributes: [SI] },
           {
             title: 'drag link',
-            attributes: ['SI', 'check castle nut and pin'],
+            attributes: [SI, 'check castle nut and pin'],
           },
           {
             title: 'upper knuckle',
-            attributes: ['SI', 'check castle nut and pin'],
+            attributes: [SI, 'check castle nut and pin'],
           },
           {
             title: 'lower knuckle',
-            attributes: ['SI', 'check castle nut and pin'],
+            attributes: [SI, 'check castle nut and pin'],
           },
-          { title: 'tie rod', attributes: ['SI', 'check castle nut and pin'] },
+          { title: 'tie rod', attributes: [SI, 'check castle nut and pin'] },
         ],
       },
       {
         title: 'braking system',
         components: [
-          { title: 'air line', attributes: ['SI', 'L'] },
-          { title: 'brake chamber', attributes: ['SI', 'L'] },
-          { title: 'push rod', attributes: ['SI'] },
+          { title: 'air line', attributes: [SI, L] },
+          { title: 'brake chamber', attributes: [SI, L] },
+          { title: 'push rod', attributes: [SI] },
           {
             title: 'slack adjuster',
             attributes: [
-              'SI',
+              SI,
               'pull slack adjuster. check for less than 1" of movement and that push rod and slack adjuster meet at 90 degrees',
             ],
           },
-          { title: 's-cam housing', attributes: ['SI', 'mention s-cam'] },
-          { title: 'brake shoes', attributes: ['SI'] },
+          { title: 's-cam housing', attributes: [SI, 'mention s-cam'] },
+          { title: 'brake shoes', attributes: [SI] },
           {
             title: 'brake pads',
-            attributes: ['SI', 'pads must be over 1/4" thick'],
+            attributes: [SI, 'pads must be over 1/4" thick'],
           },
           {
             title: 'brake drum',
-            attributes: ['SI', 'not warped, cracked, or dirty'],
+            attributes: [SI, 'not warped, cracked, or dirty'],
           },
         ],
       },
