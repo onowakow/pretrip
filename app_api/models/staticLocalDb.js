@@ -1,18 +1,3 @@
-// db = connect('mongodb://localhost/pretrip');
-
-// Run in mongosh with load('filepath')
-
-/*
-  KEY
-  "SI": "secured and intact/undamaged",
-  "U": "unobstructed",
-  "L": "not leaking",
-  "Blt": "belt driven",
-  "Gr": "gear driven",
-  "BP": "belt play"
-*/
-
-// testing the idea of subbing out abbr. here
 const SI = 'secured and intact/undamaged';
 const U = 'unobstructed';
 const L = 'not leaking';
@@ -20,10 +5,7 @@ const Blt = 'belt driven';
 const Gr = 'gear driven';
 const BP = 'belt play';
 
-// Clear all sections
-db.sections.deleteMany({});
-
-db.sections.insertMany([
+const array = [
   {
     title: 'before you start',
     subsections: [],
@@ -198,4 +180,6 @@ db.sections.insertMany([
     title: 'lights',
     subsections: [],
   },
-]);
+];
+
+module.exports = array;

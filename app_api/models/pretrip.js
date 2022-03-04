@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const componentSchema = new mongoose.Schema({
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    auto: true,
+  },
   title: {
     type: String,
     required: true,
@@ -8,6 +13,11 @@ const componentSchema = new mongoose.Schema({
   attributes: [String],
 });
 const subsectionSchema = new mongoose.Schema({
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    auto: true,
+  },
   title: {
     type: String,
     required: true,
@@ -22,4 +32,6 @@ const sectionSchema = new mongoose.Schema({
   subsections: [subsectionSchema],
 });
 
-mongoose.model('Section', sectionSchema);
+const Section = mongoose.model('Section', sectionSchema, 'sections');
+
+module.exports = { Section };
