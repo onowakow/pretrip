@@ -5,7 +5,7 @@ block content
     .display-3.pageTitle.capitalize=section.title
   .row
     .col.d-flex.justify-content-center
-      button.resetLocalStorage(id='resetLocalStorage') Reset pretrip
+      button.resetLocalStorage Reset pretrip
     form(action="") 
       each subsection in section.subsections
         .subsection
@@ -18,5 +18,5 @@ block content
                   input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
                   label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
-      button.resetLocalStorage(id='resetLocalStorage') Reset pretrip
-  script(src="../javascripts/sectionJS/sectionHandlers.js")
+      button.resetLocalStorage Reset pretrip
+  script(src="../javascripts/section/sectionHandlers.js")

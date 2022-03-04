@@ -1,5 +1,4 @@
 const localStorage = window.localStorage;
-
 const toggleableNodeArr = document.querySelectorAll('.toggleable');
 
 const updateChecks = (element) => {
@@ -17,15 +16,5 @@ if (toggleableNodeArr) {
   toggleableNodeArr.forEach((element) => {
     updateChecks(element);
     element.addEventListener('click', (e) => handleClick(e));
-  });
-}
-
-const resetLocalStorageButton = document.getElementById('resetLocalStorage');
-if (resetLocalStorageButton) {
-  resetLocalStorageButton.addEventListener('click', () => {
-    localStorage.clear();
-    toggleableNodeArr.forEach((element) => {
-      updateChecks(element);
-    });
   });
 }
