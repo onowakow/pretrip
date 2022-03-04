@@ -2,29 +2,20 @@ const localStorage = window.localStorage;
 
 const toggleableNodeArr = document.querySelectorAll('.toggleable');
 
+const updateChecks = (element) => {
+  element.checked = localStorage.getItem(element.id) === 'true' ? true : false;
+};
+
 const handleClick = (e) => {
-  console.log(e.target.checked);
-  console.log(e.target.id);
-  /* const id = e.target.id;
-  const index = e.target.name;
-  const json = localStorage.getItem(id);
-  let obj = {};
-
-  if (json) {
-    obj = JSON.parse(json);
-    obj[index] = true;
-  } else {
-    obj[index] = true;
-  }
-
-  const newJson = JSON.stringify(obj);
-
-  localStorage.setItem(id, newJson);
-  */
+  const isChecked = e.target.checked;
+  // JSON format {"id": "index"}
+  const id = e.target.id;
+  localStorage.setItem(id, isChecked);
 };
 
 if (toggleableNodeArr) {
   toggleableNodeArr.forEach((element) => {
+    updateChecks(element);
     element.addEventListener('click', (e) => handleClick(e));
   });
 }
@@ -33,5 +24,8 @@ const resetLocalStorageButton = document.getElementById('resetLocalStorage');
 if (resetLocalStorageButton) {
   resetLocalStorageButton.addEventListener('click', () => {
     localStorage.clear();
+    toggleableNodeArr.forEach((element) => {
+      updateChecks(element);
+    });
   });
 }
