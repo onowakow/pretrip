@@ -85,5 +85,6 @@ input[type='checkbox']:checked + label {
   border-radius: 3px;
   border: none;
   background-color: gold;
-  padding: 7px
+  padding: 7px;
+  margin-bottom: 1em;
 }
