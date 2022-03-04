@@ -4,6 +4,8 @@ block content
   .row
     .display-3.pageTitle.capitalize=section.title
   .row
+    .col
+      button.resetLocalStorage(id='resetLocalStorage') Reset pretrip
     form(action="") 
       each subsection in section.subsections
         .subsection
@@ -11,9 +13,10 @@ block content
           each component in subsection.components
             .component
               h3.capitalize.componentTitle= component.title 
-              each attribute in component.attributes
+              each attribute, index in component.attributes
                 .form-check
-                  input.form-check-input(type='checkbox' value="" id=component.title)
-                  label.form-check-label(for=component.title)
+                  // input.form-check-input(type='checkbox' value="" id=component.title)
+                  input.toggleable(type='button', value=attribute, name=index, id=component._id)
+                  // label.form-check-label(for=component._id)
                     p.capitalize.attribute=attribute
   script(src="../javascripts/sectionJS/sectionHandlers.js")

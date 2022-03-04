@@ -55,3 +55,23 @@ a, a:hover, a:focus, a:active {
 .subsection {
   margin-bottom: 5em;
 }
+
+
+.toggleable-selected {
+  border: none;
+  background-color: skyblue;
+}
+
+.toggleable {
+  border-radius: 3px;
+  border: 2px solid skyblue;
+  background-color: snow;
+  padding: 7px
+}
+
+.resetLocalStorage {
+  border-radius: 3px;
+  border: none;
+  background-color: gold;
+  padding: 7px
+}
