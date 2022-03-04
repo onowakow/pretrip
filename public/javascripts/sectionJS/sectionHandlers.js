@@ -3,7 +3,9 @@ const localStorage = window.localStorage;
 const toggleableNodeArr = document.querySelectorAll('.toggleable');
 
 const handleClick = (e) => {
-  const id = e.target.id;
+  console.log(e.target.checked);
+  console.log(e.target.id);
+  /* const id = e.target.id;
   const index = e.target.name;
   const json = localStorage.getItem(id);
   let obj = {};
@@ -18,6 +20,7 @@ const handleClick = (e) => {
   const newJson = JSON.stringify(obj);
 
   localStorage.setItem(id, newJson);
+  */
 };
 
 if (toggleableNodeArr) {

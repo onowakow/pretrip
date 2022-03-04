@@ -62,11 +62,23 @@ a, a:hover, a:focus, a:active {
   background-color: skyblue;
 }
 
-.toggleable {
+input[type="checkbox"]:not(:checked),
+input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999%;
+}
+
+input[type="checkbox"] + label {
   border-radius: 3px;
   border: 2px solid skyblue;
   background-color: snow;
-  padding: 7px
+  padding: 7px;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked + label {
+  border-color: snow;
+  background-color: skyblue;
 }
 
 .resetLocalStorage {
