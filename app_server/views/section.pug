@@ -13,10 +13,10 @@ block content
           each component in subsection.components
             .component
               h3.capitalize.componentTitle= component.title 
+              .row
               each attribute, index in component.attributes
-                .form-check
-                  input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
-                  label(for=`{"${component._id}":"${index}"}`)=attribute
+                input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
+                label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
       button.resetLocalStorage Reset pretrip
   script(src="../javascripts/section/sectionHandlers.js")

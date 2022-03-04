@@ -12,13 +12,14 @@ if (resetLocalStorageButtonArr) {
     element.addEventListener('click', () => {
       localStorage.clear();
       toggleableNodeArr.forEach((element) => {
-        updateChecks(element);
+        updateChecksToReflectLocalStorage(element);
       });
     });
   });
 }
 
-const updateChecks = (element) => {
+// Checks
+const updateChecksToReflectLocalStorage = (element) => {
   element.checked = localStorage.getItem(element.id) === 'true' ? true : false;
 };
 
@@ -31,7 +32,7 @@ const handleClick = (e) => {
 
 if (toggleableNodeArr) {
   toggleableNodeArr.forEach((element) => {
-    updateChecks(element);
+    updateChecksToReflectLocalStorage(element);
     element.addEventListener('click', (e) => handleClick(e));
   });
 }

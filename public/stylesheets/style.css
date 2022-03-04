@@ -41,11 +41,13 @@ a, a:hover, a:focus, a:active {
   font-size: 1.5em;
 }
 
+/* Part like "Windshield wiper"  */ 
 .component {
-  padding: 10px;
+  padding: 10px 10px 4px 10px;
   border: 2px solid black;
   margin-bottom: 10px;
-  border-radius: 2px;
+  border-radius: 3px;
+  background-color: #FAF9F6;
 }
 
 .fade {
@@ -60,30 +62,27 @@ a, a:hover, a:focus, a:active {
   margin-bottom: 5em;
 }
 
-
-.toggleable-selected {
-  border: none;
-  background-color: skyblue;
-}
-
+/* Handles checkbox styling. Native checkboxes are hidden.
+  Also includes checked/not checked styling. */
 input[type="checkbox"]:not(:checked),
 input[type="checkbox"]:checked {
   position: absolute;
   left: -9999%;
 }
-
 input[type="checkbox"] + label {
   border-radius: 3px;
   border: 2px solid skyblue;
-  background-color: snow;
+  background-color: white;
   padding: 7px;
   cursor: pointer;
+  margin-right: 7px;
+  margin-bottom: 7px;
 }
-
 input[type='checkbox']:checked + label {
-  border-color: snow;
+  border-color: white;
   background-color: skyblue;
 }
+/* END CHECKBOX STYLING */
 
 .resetLocalStorage {
   border-radius: 3px;
