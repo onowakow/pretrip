@@ -4,9 +4,7 @@ var router = express.Router();
 const ctrlSections = require('../controllers/sections');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', (req, res) => res.redirect('/sections'));
 
 // controllers/sections gets data from API and then calls render from renderPretripPages.js
 

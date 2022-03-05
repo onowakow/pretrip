@@ -6,8 +6,8 @@ block content
   .row
   if !section.subsections.length
     .col
-      p There is not yet content for this section.
-      a(href="/sections").returnLink Go back to title page
+      p There is no content for this section yet.
+      a(href="/sections").navLink Go back to title page
   else
     .col.d-flex.justify-content-center
       button.resetLocalStorage Reset Pretrip
@@ -24,5 +24,6 @@ block content
                 input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
                 label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
-      a.navLink.btn-primary(href=`/sections/ID/${section.ID + 1}`) Next Section
+      a.mr.navLink-secondary(href='/sections') Back to title page
+      a.navLink(href=`/sections/ID/${section.ID + 1}`) Next Section
   script(src="../javascripts/section/sectionHandlers.js")
