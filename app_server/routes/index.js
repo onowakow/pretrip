@@ -8,24 +8,10 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// A list of pre-trip sections
 router.get('/sections', ctrlPretrip.sections);
 
+// A single pre-trip section
 router.get('/sections/:sectionid', ctrlPretrip.oneSection);
-/*
-router.get('/playground', function (req, res, next) {
-  res.render('playground', {
-    title: 'Test',
-    sectionTitles: [
-      'Before you start',
-      'Engine compartment',
-      'Exterior',
-      'Interior',
-      "Driver's cab",
-      'Air brakes',
-      'Lights',
-    ],
-  });
-});
-*/
 
 module.exports = router;
