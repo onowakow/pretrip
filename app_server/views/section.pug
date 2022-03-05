@@ -4,6 +4,11 @@ block content
   .row
     .display-3.pageTitle.capitalize=section.title
   .row
+  if !section.subsections.length
+    .col
+      p There is not yet content for this section.
+      a(href="/sections").returnLink Go back to title page
+  else
     .col.d-flex.justify-content-center
       button.resetLocalStorage Reset Pretrip
     form(action="") 
@@ -19,5 +24,5 @@ block content
                 input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
                 label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
-      button.resetLocalStorage Reset Pretrip
+      a.navLink.btn-primary(href=`/sections/ID/${section.ID + 1}`) Next Section
   script(src="../javascripts/section/sectionHandlers.js")

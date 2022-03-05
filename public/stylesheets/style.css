@@ -104,3 +104,15 @@ input[type='checkbox']:checked + label {
 .subtext {
   margin-bottom: 7px
 }
+
+.returnLink {
+  background-color: skyblue;
+  border-radius: 3px;
+  padding: 7px
+}
+
+.navLink {
+  border-radius: 3px;
+  padding: 7px;
+  cursor: pointer
+}

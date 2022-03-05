@@ -8,10 +8,15 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// controllers/sections gets data from API and then calls render from renderPretripPages.js
+
 // A list of pre-trip sections
 router.get('/sections', ctrlSections.sectionTitlesPage);
 
-// A single pre-trip section
-router.get('/sections/:sectionid', ctrlSections.oneSection);
+// A single pre-trip section (by title)
+router.get('/sections/:sectiontitle', ctrlSections.oneSectionPage);
+
+// Single pre-trip section (by human ID)
+router.get('/sections/ID/:id', ctrlSections.oneSectionPageById);
 
 module.exports = router;

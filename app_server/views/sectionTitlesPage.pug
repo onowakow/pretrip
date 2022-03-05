@@ -4,7 +4,7 @@ block content
   .row
     .display-1.pageTitle="My pretrip"
   .row.g-2
-    each section in sections
-      a.section(href=`/sections/${section._id}`)
+    each section in viewData
+      a.section(href=`/sections/${section.kebabTitle}`)
         .sectionTitle.h3.capitalize= section.title
-        p.text-muted.subtext #{section.subsections.length} subsections
+        p.text-muted.subtext #{section.subsectionsLength} subsections
