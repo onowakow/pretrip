@@ -3,13 +3,15 @@ extends layout
 block content
   .row
     .display-3.pageTitle.capitalize=section.title
+    .span.text-muted.subtext #{}
   .row
     .col.d-flex.justify-content-center
-      button.resetLocalStorage Reset pretrip
+      button.resetLocalStorage Reset Pretrip
     form(action="") 
       each subsection in section.subsections
         .subsection
-          h2.capitalize= subsection.title
+          h2.capitalize.sectionTitle= subsection.title
+          p.text-muted.subtext #{subsection.components.length} components
           each component in subsection.components
             .component
               h3.capitalize.componentTitle= component.title 
@@ -18,5 +20,5 @@ block content
                 input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
                 label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
-      button.resetLocalStorage Reset pretrip
+      button.resetLocalStorage Reset Pretrip
   script(src="../javascripts/section/sectionHandlers.js")

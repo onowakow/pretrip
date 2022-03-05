@@ -2,6 +2,8 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #FFFFFE;
+  padding-bottom: 5em;
+  padding-top: 6em;
 }
 
 @media only screen and (max-width: 578px) {
@@ -27,9 +29,8 @@ a {
 
 .pageTitle {
   border-bottom: 3px solid gold;
-  padding-top: 10%;
   padding-bottom: .25em;
-  margin-bottom: 5%;
+  margin-bottom: 25px;
 }
 
 a, a:hover, a:focus, a:active {
@@ -54,7 +55,11 @@ a, a:hover, a:focus, a:active {
   opacity: .5;
 }
 
-.capitalize:first-letter {
+.capitalize {
+  text-transform: capitalize;
+}
+
+.capitalize-first:first-letter {
   text-transform: uppercase;
 }
 
@@ -90,4 +95,12 @@ input[type='checkbox']:checked + label {
   background-color: gold;
   padding: 7px;
   margin-bottom: 1em;
+}
+
+.sectionTitle {
+  margin-bottom: 0
+}
+
+.subtext {
+  margin-bottom: 7px
 }

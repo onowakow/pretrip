@@ -7,3 +7,4 @@ block content
     each section in sections
       a.section(href=`/sections/${section._id}`)
         .sectionTitle.h3.capitalize= section.title
+        p.text-muted.subtext #{section.subsections.length} subsections

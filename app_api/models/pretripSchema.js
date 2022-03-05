@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const componentSchema = new mongoose.Schema({
-  _id: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    auto: true,
-  },
   title: {
     type: String,
     required: true,
@@ -25,6 +20,11 @@ const subsectionSchema = new mongoose.Schema({
   components: [componentSchema],
 });
 const sectionSchema = new mongoose.Schema({
+  ID: {
+    type: Number,
+    unique: true,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

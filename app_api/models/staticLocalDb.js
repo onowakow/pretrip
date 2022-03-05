@@ -7,10 +7,12 @@ const BP = 'belt play less that 3/4"';
 
 const array = [
   {
+    ID: 2,
     title: 'before you start',
     subsections: [],
   },
   {
+    ID: 1,
     title: 'engine compartment',
     subsections: [
       {
@@ -161,22 +163,27 @@ const array = [
     ],
   },
   {
+    ID: 3,
     title: 'exterior',
     subsections: [],
   },
   {
+    ID: 4,
     title: 'passenger area',
     subsections: [],
   },
   {
+    ID: 5,
     title: 'driver cab',
     subsections: [],
   },
   {
+    ID: 6,
     title: 'air brakes',
     subsections: [],
   },
   {
+    ID: 7,
     title: 'lights',
     subsections: [],
   },
