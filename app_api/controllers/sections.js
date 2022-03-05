@@ -1,14 +1,24 @@
-const mongoose = require('mongoose');
-const sectionModel = mongoose.model('Section');
+// const mongoose = require('mongoose');
+const componentModel = require('../models/componentSchemaDef');
 const staticLocalDb = require('../models/staticLocalDb');
 
-const getSections = (req, res) => {
-  sectionModel
+const getSectionTitles = (req, res) => {
+  componentModel
     .find()
-    .select('title subsections')
-    .exec((err, sections) => {
+    .select('section')
+    .exec((err, components) => {
       if (err) res.status(404).json({ message: 'sections not found' });
-      return res.status(200).json(sections);
+
+      // returns [_id: xxx, section: string]. Reduce repeats
+      let titles = [];
+      components.forEach((component) => {
+        if (titles.indexOf(component.section) !== -1) return;
+        titles.push(component.section);
+      });
+
+      if (titles.length < 1)
+        return res.status(404).json({ message: 'section titles not found' });
+      return res.status(200).json(titles);
     });
 };
 
@@ -19,21 +29,21 @@ const getSectionById = (req, res) => {
   });
 };
 
-const resetSections = (req, res) => {
+const resetComponents = (req, res) => {
   const successResponse = {};
-  sectionModel.deleteMany({}).exec((err, response) => {
+  componentModel.deleteMany({}).exec((err, response) => {
     if (err)
-      return res.status(404).json({ message: 'Failed to delete sections' });
-    successResponse.deleteMany = 'Successfully deleted all section documents';
+      return res.status(404).json({ message: 'Failed to delete components' });
+    successResponse.deleteMany = 'Successfully deleted all component documents';
   });
-  sectionModel.insertMany(staticLocalDb, (err, data) => {
+  componentModel.insertMany(staticLocalDb, (err, data) => {
     if (err)
-      return res.status(404).json({ message: 'Failed to reset sections' });
+      return res.status(404).json({ message: 'Failed to reset components' });
     successResponse.insertMany =
-      'Successfully repopulated all section documents';
+      'Successfully repopulated all component documents';
     successResponse.data = data;
     return res.status(201).json(successResponse);
   });
 };
 
-module.exports = { getSections, getSectionById, resetSections };
+module.exports = { getSectionTitles, getSectionById, resetComponents };

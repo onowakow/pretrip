@@ -3,7 +3,7 @@ const router = express.Router();
 
 const ctrlSections = require('../controllers/sections');
 
-router.route('/sections').get(ctrlSections.getSections);
+router.route('/sections').get(ctrlSections.getSectionTitles);
 router.route('/sections/:sectionid').get(ctrlSections.getSectionById);
-router.route('/sections/reset').post(ctrlSections.resetSections);
+router.route('/sections/reset').post(ctrlSections.resetComponents);
 module.exports = router;

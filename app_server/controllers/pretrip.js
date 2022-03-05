@@ -8,14 +8,14 @@ if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'http://uwyobus.herokuapp.com';
 }
 
-const renderSectionsPage = (req, res, responseBody) => {
+const renderSectionTitlesPage = (req, res, responseBody) => {
   let message = null;
   if (!(responseBody instanceof Array)) {
     message = 'API lookup error. Failed to get sections.';
     responseBody = [];
   }
-  res.render('sections', {
-    sections: responseBody,
+  res.render('sectionTitlesPage', {
+    sectionTitles: responseBody,
   });
 };
 
@@ -30,19 +30,19 @@ const renderOneSectionPage = (req, res, responseBody) => {
   });
 };
 
-const sections = (req, res) => {
+const sectionTitles = (req, res) => {
   const path = '/api/sections';
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
     method: 'GET',
     json: {},
   };
-  request(requestOptions, (err, { statusCode }, body) => {
+  request(requestOptions, (err, { statusCode }, titlesArray) => {
     if (statusCode === 200) {
       console.log('GET sections successful');
     }
 
-    renderSectionsPage(req, res, body);
+    renderSectionTitlesPage(req, res, titlesArray);
   });
 };
 
@@ -62,4 +62,4 @@ const oneSection = (req, res) => {
   });
 };
 
-module.exports = { sections, oneSection };
+module.exports = { sectionTitles, oneSection };

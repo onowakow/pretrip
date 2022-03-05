@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 // A list of pre-trip sections
-router.get('/sections', ctrlPretrip.sections);
+router.get('/sections', ctrlPretrip.sectionTitles);
 
 // A single pre-trip section
 router.get('/sections/:sectionid', ctrlPretrip.oneSection);

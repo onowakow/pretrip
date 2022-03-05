@@ -2,6 +2,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #FFFFFE;
+  padding-bottom: 5em;
 }
 
 @media only screen and (max-width: 578px) {
