@@ -6,4 +6,4 @@ block content
   .row.g-2
     each title in sectionTitles
       a.section(href=`/sections/${title.replace(/\s+/g, '-').toLowerCase()}`)
-        .sectionTitle.h3.capitalize= title
+        .sectionTitle.h3.capitalizeTitle= title

@@ -55,6 +55,10 @@ a, a:hover, a:focus, a:active {
   opacity: .5;
 }
 
+.capitalizeTitle {
+  text-transform: capitalize;
+}
+
 .capitalize:first-letter {
   text-transform: uppercase;
 }
