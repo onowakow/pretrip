@@ -34,7 +34,6 @@ const renderOneSectionPage = (req, res, responseBody) => {
     return res.render('error', { message: 'Page not found.', status: 404 });
 
   const section = responseBody;
-  console.log(section.subsections);
   res.render('section', {
     title: section.title,
     subsections: section.subsections,

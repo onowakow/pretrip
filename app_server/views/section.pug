@@ -13,12 +13,18 @@ block content
       button.resetLocalStorage Reset Pretrip
     form(action="") 
       each subsection in subsections
-        .subsection
-          h2.capitalize.sectionTitle= subsection.title
+        container.subsection
+          .row
+            .col.d-flex.justify-content-between
+              h2.capitalize.sectionTitle= subsection.title
+              i.far.fa-edit
           p.text-muted.subtext #{subsection.components.length} components
           each component in subsection.components
             .component
-              h3.capitalize.componentTitle= component.title 
+              .row
+                .col.d-flex.justify-content-between
+                  h3.capitalize.componentTitle= component.title 
+                  // i.far.fa-edit
               .row
               each attribute, index in component.attributes
                 input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
