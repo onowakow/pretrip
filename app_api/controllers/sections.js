@@ -19,6 +19,13 @@ const getSections = (req, res) => {
     });
 };
 
+const getSectionsCount = (req, res) => {
+  sectionModel.count({}).exec((err, count) => {
+    if (err) res.status(404).json({ message: 'sections not found' });
+    return res.status(200).json(count);
+  });
+};
+
 const getSectionByHumanID = (req, res) => {
   const ID = req.params.id;
 
@@ -76,4 +83,5 @@ module.exports = {
   getSectionByTitle,
   resetSections,
   getSectionByHumanID,
+  getSectionsCount,
 };

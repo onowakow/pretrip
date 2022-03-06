@@ -33,12 +33,12 @@ const renderOneSectionPage = (req, res, responseBody) => {
   if (!responseBody)
     return res.render('error', { message: 'Page not found.', status: 404 });
 
-  if (!responseBody.title) {
-    message = 'API lookup error. Failed to get sections';
-    responseBody = [];
-  }
+  const section = responseBody;
+  console.log(section.subsections);
   res.render('section', {
-    section: responseBody,
+    title: section.title,
+    subsections: section.subsections,
+    ID: section.ID,
   });
 };
 

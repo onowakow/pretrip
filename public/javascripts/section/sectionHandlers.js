@@ -7,7 +7,6 @@ const resetLocalStorageButtonArr =
   document.querySelectorAll('.resetLocalStorage');
 
 if (resetLocalStorageButtonArr) {
-  console.log(true);
   resetLocalStorageButtonArr.forEach((element) => {
     element.addEventListener('click', () => {
       localStorage.clear();

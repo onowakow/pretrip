@@ -2,9 +2,9 @@ extends layout
 
 block content
   .row
-    .display-3.pageTitle.capitalize=section.title
+    .display-3.pageTitle.capitalize=title
   .row
-  if !section.subsections.length
+  if !subsections.length
     .col
       p There is no content for this section yet.
       a(href="/sections").navLink Go back to title page
@@ -12,7 +12,7 @@ block content
     .col.d-flex.justify-content-center
       button.resetLocalStorage Reset Pretrip
     form(action="") 
-      each subsection in section.subsections
+      each subsection in subsections
         .subsection
           h2.capitalize.sectionTitle= subsection.title
           p.text-muted.subtext #{subsection.components.length} components
@@ -25,5 +25,5 @@ block content
                 label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
       a.mr.navLink-secondary(href='/sections') Back to title page
-      a.navLink(href=`/sections/ID/${section.ID + 1}`) Next Section
-  script(src="../javascripts/section/sectionHandlers.js")
+      a.navLink(href=`/sections/ID/${ID + 1}`) Next Section
+    script(src="../javascripts/section/sectionHandlers.js")
