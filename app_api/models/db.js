@@ -51,3 +51,4 @@ process.on('SIGTERM', () => {
 });
 
 require('./pretripSchema');
+require('./users');
