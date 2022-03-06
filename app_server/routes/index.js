@@ -6,6 +6,9 @@ const ctrlSections = require('../controllers/sections');
 /* GET home page. */
 router.get('/', (req, res) => res.redirect('/sections'));
 
+// playground
+router.get('/playground', ctrlSections.playground);
+
 // controllers/sections gets data from API and then calls render from renderPretripPages.js
 
 // A list of pre-trip sections

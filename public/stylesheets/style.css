@@ -30,7 +30,7 @@ a {
 .pageTitle {
   border-bottom: 3px solid gold;
   padding-bottom: .25em;
-  margin-bottom: 25px;
+  margin-bottom: 1rem;
 }
 
 a, a:hover, a:focus, a:active {
@@ -51,6 +51,16 @@ a, a:hover, a:focus, a:active {
   background-color: #FAF9F6;
 }
 
+.component-edit {
+  padding: 15px;
+  background-color: skyblue;
+  border-color: #FAF9F6;
+}
+
+.components-edit-div {
+  margin-top: 1rem;
+}
+
 .fade {
   opacity: .5;
 }
@@ -64,7 +74,7 @@ a, a:hover, a:focus, a:active {
 }
 
 .subsection {
-  margin-bottom: 5em;
+  margin-bottom: 40px;
 }
 
 /* Handles checkbox styling. Native checkboxes are hidden.
@@ -94,15 +104,15 @@ input[type='checkbox']:checked + label {
   border: none;
   background-color: gold;
   padding: 7px;
-  margin-bottom: 1em;
-}
-
-.sectionTitle {
-  margin-bottom: 0
+  margin-bottom: 1rem;
 }
 
 .subtext {
   margin-bottom: 7px
+}
+
+.sectionTitle {
+  margin-bottom: 0;
 }
 
 .navLink {

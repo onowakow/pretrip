@@ -65,4 +65,88 @@ const oneSectionPage = (req, res) => {
   });
 };
 
-module.exports = { sectionTitlesPage, oneSectionPage, oneSectionPageById };
+const playground = (req, res) => {
+  const subsection = {
+    _id: '6223c6a800dc8d253fc3207c',
+    title: 'passenger side',
+    components: [
+      {
+        title: 'hoses, clamps, and wires',
+        attributes: ['secured and intact/undamaged'],
+        _id: '6223c6a800dc8d253fc3207d',
+      },
+      {
+        title: 'windshield wiper fluid',
+        attributes: ['cap', 'level'],
+        _id: '6223c6a800dc8d253fc3207e',
+      },
+      {
+        title: 'air filter',
+        attributes: [
+          'air flow indicator',
+          'reset air flow indicator',
+          'secured and intact/undamaged',
+          'unobstructed',
+        ],
+        _id: '6223c6a800dc8d253fc3207f',
+      },
+      {
+        title: 'turbocharger',
+        attributes: ['secured and intact/undamaged'],
+        _id: '6223c6a800dc8d253fc32080',
+      },
+      {
+        title: 'air conditioner compressor I',
+        attributes: [
+          'secured and intact/undamaged',
+          'belt driven',
+          'belt play less that 3/4"',
+        ],
+        _id: '6223c6a800dc8d253fc32081',
+      },
+      {
+        title: 'alternator',
+        attributes: [
+          'secured and intact/undamaged',
+          'belt driven',
+          'belt play less that 3/4"',
+        ],
+        _id: '6223c6a800dc8d253fc32082',
+      },
+      {
+        title: 'air conditioner compressor II',
+        attributes: [
+          'secured and intact/undamaged',
+          'belt driven',
+          'belt play less that 3/4"',
+        ],
+        _id: '6223c6a800dc8d253fc32083',
+      },
+      {
+        title: 'water pump',
+        attributes: [
+          'secured and intact/undamaged',
+          'belt driven',
+          'belt play less that 3/4"',
+        ],
+        _id: '6223c6a800dc8d253fc32084',
+      },
+      {
+        title: 'radiator fins',
+        attributes: ['secured and intact/undamaged', 'unobstructed'],
+        _id: '6223c6a800dc8d253fc32085',
+      },
+    ],
+  };
+  res.render('sectionEdit', {
+    subsection: subsection,
+    title: 'Editor',
+  });
+};
+
+module.exports = {
+  sectionTitlesPage,
+  oneSectionPage,
+  oneSectionPageById,
+  playground,
+};
