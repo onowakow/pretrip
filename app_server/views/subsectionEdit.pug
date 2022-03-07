@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .row
+    .pageTitle.capitalize=pageTitle
+  .row
+    h2.sectionTitle.capitalize=subsectionTitle
+  .components-edit-div
+    block content
+    each component, index in components
+      a(href=`/sections/${subsectionKebabTitle}/edit/${component._id}`)
+        .row.component.component-edit.capitalize
+          .componentTitle Edit #{component.title}
+

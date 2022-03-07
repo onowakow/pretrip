@@ -28,6 +28,7 @@ a {
 }
 
 .pageTitle {
+  font-size: 4rem;
   border-bottom: 3px solid gold;
   padding-bottom: .25em;
   margin-bottom: 1rem;

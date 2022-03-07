@@ -41,4 +41,25 @@ const renderOneSectionPage = (req, res, responseBody) => {
   });
 };
 
-module.exports = { renderSectionTitlesPage, renderOneSectionPage };
+const renderSubsectionEdit = (req, res, responseBody) => {
+  if (!responseBody)
+    return res.render('error', { message: 'Page not found.', status: 404 });
+
+  const subsection = responseBody;
+
+  console.log(subsection);
+
+  res.render('subsectionEdit', {
+    pageTitle: 'Editor',
+    subsectionTitle: subsection.title,
+    subsectionKebabTitle: titleToUrlFriendly(subsection.title),
+    components: subsection.components,
+    _id: subsection._id,
+  });
+};
+
+module.exports = {
+  renderSectionTitlesPage,
+  renderOneSectionPage,
+  renderSubsectionEdit,
+};

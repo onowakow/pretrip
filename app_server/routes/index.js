@@ -7,7 +7,7 @@ const ctrlSections = require('../controllers/sections');
 router.get('/', (req, res) => res.redirect('/sections'));
 
 // playground
-router.get('/playground', ctrlSections.playground);
+router.get('/sections/:sectionTitle/edit', ctrlSections.subsectionEdit);
 
 // controllers/sections gets data from API and then calls render from renderPretripPages.js
 

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const urlFriendlyToTitle = require('../../utilities/urlFriendlyToTitle');
 const sectionModel = mongoose.model('Section');
 const staticLocalDb = require('../models/staticLocalDb');
 
@@ -36,14 +37,41 @@ const getSectionByHumanID = (req, res) => {
   });
 };
 
-const getSectionByTitle = (req, res) => {
+const getSectionByTitle = async (req, res) => {
   const kebabSectionTitle = req.params.sectiontitle;
-  const sectionTitle = kebabSectionTitle.split('-').join(' ');
+  try {
+    const section = await sectionModel
+      .findSectionByKebabTitle(kebabSectionTitle)
+      .exec();
+    return res.status(200).json(section);
+  } catch (err) {
+    return res.status(404).json(err);
+  }
+};
 
+// INCOMPLETE
+const getSubsection = async (req, res) => {
+  const kebabSectionTitle = req.params.sectiontitle;
+  const kebabSubsectionTitle = req.params.subsectiontitle;
+
+  try {
+    const section = await sectionModel
+      .findSectionByKebabTitle(kebabSectionTitle)
+      .exec();
+    // Now: we have section and we have a kebab subsection title.
+    // Can we create a schema method which returns a subdocument?
+    // section.findSubsectionByKebabTitle(kebabSectionTitle).exec()
+  } catch (err) {
+    return res.status(404).json(err);
+  }
+
+  /*
   sectionModel.findOne({ title: sectionTitle }).exec((err, section) => {
     if (err) return res.status(404).json({ message: 'section not found' });
-    return res.status(200).json(section);
   });
+
+  res.status(200).json({ message: 'OK' });
+  */
 };
 
 /*
@@ -84,4 +112,5 @@ module.exports = {
   resetSections,
   getSectionByHumanID,
   getSectionsCount,
+  getSubsection,
 };

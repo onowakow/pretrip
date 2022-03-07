@@ -14,6 +14,9 @@ const ctrlAuth = require('../controllers/authentication');
 router.route('/sections').get(ctrlSections.getSections);
 router.route('/sections/about/count').get(ctrlSections.getSectionsCount);
 router.route('/sections/:sectiontitle').get(ctrlSections.getSectionByTitle);
+router
+  .route('/sections/:sectiontitle/:subsectiontitle')
+  .get(ctrlSections.getSubsection);
 router.route('/sections/id/:id').get(ctrlSections.getSectionByHumanID);
 router.route('/sections/reset').post(auth, ctrlSections.resetSections);
 
