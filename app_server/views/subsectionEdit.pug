@@ -5,10 +5,26 @@ block content
     .pageTitle.capitalize=pageTitle
   .row
     h2.sectionTitle.capitalize=subsectionTitle
-  .components-edit-div
-    block content
+  div(id='reactEditorContainer')
+  
+  // .components-edit-div
     each component, index in components
-      a(href=`/sections/${subsectionKebabTitle}/edit/${component._id}`)
-        .row.component.component-edit.capitalize
-          .componentTitle Edit #{component.title}
+      // button(value=`componentTitle-${index}`) edit
+      form.component.componentEditorDiv
+        .form-group.componentEditorTitle
+          label.componentEditorFieldTitle(for=`componentTitle-${index}`) Title 
+          input.componentTitle(id=`componentTitle-${index}`, type='text', class='form-control', value=component.title)
+        fieldset
+          legend.componentEditorFieldTitle Attributes
+          each attribute, index in component.attributes
+            .form-group.componentEditorAttribute
+              input(id=`${component.title}-attribute-${index}`, type='text', class='form-control', value=attribute)
+        button.navLink Save changes
+        button.navLink.navLink-green.addAttributeBtn Add attribute
 
+  // React CDN
+  script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
+  script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
+
+  // React scripts
+  script(src='../../../javascripts/react/edit_form.js')

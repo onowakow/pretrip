@@ -37,12 +37,7 @@ const sectionSchema = new mongoose.Schema({
 // Statics are called on a model, while methods are called on a model instance.
 sectionSchema.statics.findSectionByKebabTitle = function (kebabTitle) {
   const sectionTitle = kebabTitle.split('-').join(' ');
-  return this.model('Section').find({ title: sectionTitle });
-};
-
-sectionSchema.methods.findSubsectionByKebabTitle = function (kebabTitle) {
-  const subsectionTitle = kebabTitle.split('-').join(' ');
-  return this.model('Section');
+  return this.model('Section').findOne({ title: sectionTitle });
 };
 
 const Section = mongoose.model('Section', sectionSchema, 'sections');

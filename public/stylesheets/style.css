@@ -52,16 +52,6 @@ a, a:hover, a:focus, a:active {
   background-color: #FAF9F6;
 }
 
-.component-edit {
-  padding: 15px;
-  background-color: skyblue;
-  border-color: #FAF9F6;
-}
-
-.components-edit-div {
-  margin-top: 1rem;
-}
-
 .fade {
   opacity: .5;
 }
@@ -122,6 +112,10 @@ input[type='checkbox']:checked + label {
   padding: 7px
 }
 
+.navLink-green {
+  background-color: #AFE1AF;
+}
+
 .navLink-secondary {
   border: 2px solid skyblue;
   background-color: #FAF9F6;
@@ -131,4 +125,20 @@ input[type='checkbox']:checked + label {
 
 .mr {
   margin-right: 7px
+}
+
+.componentEditorTitle {
+  margin-bottom: 1rem;
+}
+
+.componentEditorAttribute {
+  margin-bottom: .25rem;
+}
+
+.componentEditorDiv {
+  padding-bottom: 1rem;
+}
+
+.componentEditorFieldTitle {
+  font-size: 1.25em;
 }

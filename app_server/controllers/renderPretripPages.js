@@ -1,4 +1,4 @@
-const titleToUrlFriendly = require('../../utilities/titleToUrlFriendly');
+const caseChange = require('../../utilities/caseChange');
 
 const renderSectionTitlesPage = (req, res, responseBody) => {
   let message = null;
@@ -17,7 +17,7 @@ const renderSectionTitlesPage = (req, res, responseBody) => {
   const viewData = sections.map((section) => {
     return {
       title: section.title,
-      kebabTitle: titleToUrlFriendly(section.title),
+      kebabTitle: caseChange.toKebabCase(section.title),
       _id: section._id,
       subsectionsLength: section.subsections.length,
     };
@@ -46,13 +46,13 @@ const renderSubsectionEdit = (req, res, responseBody) => {
     return res.render('error', { message: 'Page not found.', status: 404 });
 
   const subsection = responseBody;
-
-  console.log(subsection);
+  const sectionTitle = responseBody.sectionTitle;
 
   res.render('subsectionEdit', {
     pageTitle: 'Editor',
+    sectionKebabTitle: sectionTitle,
     subsectionTitle: subsection.title,
-    subsectionKebabTitle: titleToUrlFriendly(subsection.title),
+    subsectionKebabTitle: caseChange.toKebabCase(subsection.title),
     components: subsection.components,
     _id: subsection._id,
   });

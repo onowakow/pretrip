@@ -79,7 +79,25 @@ const oneSectionPage = (req, res) => {
 };
 
 const subsectionEdit = (req, res) => {
-  const sectionTitle = req.params.sectionTitle;
+  const sectionTitle = req.params.sectiontitle;
+  const subsectionTitle = req.params.subsectiontitle;
+  const path = `/api/sections/${sectionTitle}/${subsectionTitle}`;
+  const requestOptions = {
+    url: `${apiOptions.server}${path}`,
+    method: 'GET',
+    json: {},
+  };
+  request(requestOptions, (err, { statusCode }, body) => {
+    if (statusCode === 200) {
+      console.log('GET subsection successful');
+    }
+    // attach sectionTitle to body
+    body.sectionTitle = sectionTitle;
+
+    renderSubsectionEdit(req, res, body);
+  });
+
+  /*
   const callback = (err, { statusCode }, body) => {
     if (statusCode === 200) {
       console.log('GET one section successful');
@@ -88,6 +106,7 @@ const subsectionEdit = (req, res) => {
   };
 
   requestOneSection(sectionTitle, callback);
+  */
 };
 
 module.exports = {
