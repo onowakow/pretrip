@@ -1,4 +1,20 @@
-const SI = 'secured and intact/undamaged';
+const SI = 'secured and intact';
+const WIND = 'glass is free of damage or illegal stickers';
+const LEAK = 'look and listen for leaks';
+const DRIVE = 'driveshaft is intact and in place';
+const EXH = 'exhaust system is intact and in place';
+const busBodyObj = {
+  title: 'body',
+  attributes: ['no damage']
+}
+const busSideGlassObj = {
+  title: 'glass',
+  attributes: ['no damage']
+},
+const underTheBusObj = {
+  title: 'under the bus',
+  attributes: [LEAK, DRIVE, EXH],
+},
 const U = 'unobstructed';
 const L = 'not leaking';
 const Blt = 'belt driven';
@@ -9,7 +25,22 @@ const array = [
   {
     ID: 1,
     title: 'before you start',
-    subsections: [],
+    subsections: [
+      {
+        title: 'preparing for a pretrip',
+        components: [
+          { title: 'chock wheels', attributes: ['done'] },
+          {
+            title: 'put keys in pocket',
+            attributes: ['done'],
+          },
+          {
+            title: 'battery in off position',
+            attributes: ['done'],
+          },
+        ],
+      },
+    ],
   },
   {
     ID: 2,
@@ -165,7 +196,112 @@ const array = [
   {
     ID: 3,
     title: 'exterior',
-    subsections: [],
+    subsections: [
+      {
+        title: 'front',
+        components: [
+          {
+            title: 'windshield',
+            attributes: [WIND],
+          },
+          {
+            title: 'windshield wipers',
+            attributes: [SI],
+          },
+          {
+            title: 'body',
+            attributes: ['no damage'],
+          },
+          {
+            title: 'license plate',
+            attributes: [],
+          },
+          {
+            title: 'bumper',
+            attributes: [SI],
+          },
+          underTheBusObj,
+        ],
+      },
+      {
+        title: 'exterior driver cab',
+        components: [
+          { 
+            title: 'DEF tank and cap',
+            attributes: [SI, L] 
+          },
+          {
+            title: 'Mirror',
+            attributes: [SI, 'not excessively loose']
+          },
+          {
+            title: 'steps',
+            attributes: [SI]
+          },
+        ]
+      },
+      {
+        title: 'driver side',
+        components: [
+          underTheBusObj,
+          busSideGlassObj,
+          busBodyObj,
+          {
+            title: 'wheels',
+            attributes: ['two tires', 'check bud space',]
+          },
+          {
+            title: 'air tanks and tank drains',
+            attributes: []
+          }
+        ]
+      },
+      { 
+        title: 'backside',
+        components: [
+          underTheBusObj,
+          busSideGlassObj,
+          busBodyObj,
+          {
+            title: 'main exhaust',
+            attributes: ['not more than 1/3 obstructed']
+          },
+          {
+            title: 'auxiliary exhaust',
+            attributes: ['not more than 1/3 obstructed']
+          },
+          {
+            title: 'differential',
+            attributes: [L]
+          },
+          {
+            title: 'air bags',
+            attributes: [SI, 'securely mounted to control arm']
+          },
+          {
+            title: 'control arm',
+            attributes: [SI]
+          }
+        ]
+      },
+      {
+        title: 'passenger side',
+        components: [
+          {
+            title: 'battery compartment',
+            attributes: [SI, 'terminals are not corroded']
+          },
+          {
+            title: 'battery switch',
+            attributes: ['turn on if necessary']
+          },
+          {
+            title: 'passenger door',
+            attributes: [SI, 'glass is free of damage']
+          }
+        ]
+      },
+    ],
   },
   {
     ID: 4,
