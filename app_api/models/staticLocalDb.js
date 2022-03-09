@@ -29,14 +29,14 @@ const array = [
       {
         title: 'preparing for a pretrip',
         components: [
-          { title: 'chock wheels', attributes: ['done'] },
+          { title: 'chock wheels', attributes: [] },
           {
             title: 'put keys in pocket',
-            attributes: ['done'],
+            attributes: [],
           },
           {
             title: 'battery in off position',
-            attributes: ['done'],
+            attributes: [],
           },
         ],
       },
@@ -529,6 +529,10 @@ const array = [
             attributes: ['for ramp power'],
           },
           {
+            title: 'parking break pull',
+            attributes: ['secure', 'not coming loose'],
+          },
+          {
             title: 'intercom switch and mic',
             attributes: ['test that interior intercom works'],
           },
@@ -543,7 +547,68 @@ const array = [
   {
     ID: 5,
     title: 'air brakes',
-    subsections: [],
+    subsections: [
+      {
+        title: 'static brake test',
+        components: [
+          {
+            title: 'wheels chocked',
+            attribute: [],
+          },
+          {
+            title: 'no brakes applied',
+            attributes: ['no interlock', 'no parking brake'],
+          },
+          {
+            title: 'ignition switch at "accessories"',
+            attribute: [],
+          },
+          {
+            title: 'check brake pressure',
+            attributes: ['drops less than 2 PSI over one minute'],
+          },
+        ],
+      },
+      {
+        title: 'applied brake test',
+        components: [
+          {
+            title: 'apply service brake',
+            attributes: [],
+          },
+          {
+            title: 'check brake pressure',
+            attributes: ['drops less than 3 PSI over one minute'],
+          },
+        ],
+      },
+      {
+        title: 'bleed down test',
+        components: [
+          {
+            title: 'fan service brakes',
+            attributes: [],
+          },
+          {
+            title: 'warnings before 60 psi',
+            attributes: ['audio and visual'],
+          },
+          {
+            title: 'auto parking brake around 25 psi',
+            attributes: [],
+          },
+        ],
+      },
+      {
+        title: 'build up test',
+        components: [
+          {
+            title: 'turn engine on',
+            attributes: [],
+          },
+        ],
+      },
+    ],
   },
   {
     ID: 6,

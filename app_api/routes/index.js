@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('express-jwt');
+
+// Remove if client does not want auth
 const auth = jwt({
   secret: process.env.JWT_SECRET,
   userProperty: 'payload',
@@ -13,13 +15,15 @@ const ctrlAuth = require('../controllers/authentication');
 // '/sections' accepts query param 'fields'
 router.route('/sections').get(ctrlSections.getSections);
 router.route('/sections/about/count').get(ctrlSections.getSectionsCount);
+router.route('/sections/id/:id').get(ctrlSections.getSectionByHumanID);
 router.route('/sections/:sectiontitle').get(ctrlSections.getSectionByTitle);
 router
   .route('/sections/:sectiontitle/:subsectiontitle')
   .get(ctrlSections.getSubsection);
-router.route('/sections/id/:id').get(ctrlSections.getSectionByHumanID);
-router.route('/sections/reset').post(auth, ctrlSections.resetSections);
+// Auth added here if being included
+router.route('/sections/reset').post(ctrlSections.resetSections);
 
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+
 module.exports = router;

@@ -57,6 +57,7 @@ const oneSectionPageById = (req, res) => {
 
   request(requestOptions, (err, { statusCode }, body) => {
     if (err) return console.log('No page by that id');
+    if (!body || !body.title) return res.status(404).json('no section found');
     sectionTitle = titleToUrlFriendly(body.title);
     res.redirect(`/sections/${sectionTitle}`);
   });
