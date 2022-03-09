@@ -29,14 +29,14 @@ const array = [
       {
         title: 'preparing for a pretrip',
         components: [
-          { title: 'chock wheels', attributes: [] },
+          { title: 'chock wheels', attributes: ['chocked'] },
           {
             title: 'put keys in pocket',
-            attributes: [],
+            attributes: ['ensures engine will not be started'],
           },
           {
             title: 'battery in off position',
-            attributes: [],
+            attributes: ['ensured engine will not be started'],
           },
         ],
       },
