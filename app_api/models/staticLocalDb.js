@@ -214,7 +214,7 @@ const array = [
           },
           {
             title: 'license plate',
-            attributes: [],
+            attributes: [SI],
           },
           {
             title: 'bumper',
@@ -252,7 +252,7 @@ const array = [
           },
           {
             title: 'air tanks and tank drains',
-            attributes: [],
+            attributes: [SI],
           },
         ],
       },
@@ -364,7 +364,7 @@ const array = [
           },
           {
             title: 'vehicle paperwork',
-            attributes: [],
+            attributes: ['present'],
           },
           {
             title: 'electrical/fuse box',
@@ -389,7 +389,7 @@ const array = [
           },
           {
             title: 'seat belt cutter',
-            attributes: [],
+            attributes: ['present'],
           },
           {
             title: 'pedals',
@@ -417,7 +417,7 @@ const array = [
           },
           {
             title: 'turn ignition: start engine',
-            attributes: [],
+            attributes: ['done'],
           },
           {
             title: 'oil pressure',
@@ -469,7 +469,7 @@ const array = [
         components: [
           {
             title: 'steering wheel adjuster',
-            attributes: [],
+            attributes: [SI],
           },
           {
             title: 'windshield wipers',
@@ -494,7 +494,7 @@ const array = [
         components: [
           {
             title: 'mirror heater switch',
-            attributes: [],
+            attributes: ['test that mirror heats'],
           },
           {
             title: 'headlight dial',
@@ -506,15 +506,15 @@ const array = [
           },
           {
             title: 'passenger climate controls',
-            attributes: [],
+            attributes: ['turn on if driving'],
           },
           {
             title: 'two-way radio',
-            attributes: [],
+            attributes: [SI],
           },
           {
             title: 'regen switches',
-            attributes: [],
+            attributes: ['for regeneration control'],
           },
           {
             title: 'retarder switch',
@@ -553,7 +553,7 @@ const array = [
         components: [
           {
             title: 'wheels chocked',
-            attribute: [],
+            attribute: ['applied to passenger-side rear wheels'],
           },
           {
             title: 'no brakes applied',
@@ -561,7 +561,7 @@ const array = [
           },
           {
             title: 'ignition switch at "accessories"',
-            attribute: [],
+            attribute: ['done'],
           },
           {
             title: 'check brake pressure',
@@ -574,7 +574,7 @@ const array = [
         components: [
           {
             title: 'apply service brake',
-            attributes: [],
+            attributes: ['done'],
           },
           {
             title: 'check brake pressure',
@@ -587,15 +587,15 @@ const array = [
         components: [
           {
             title: 'fan service brakes',
-            attributes: [],
+            attributes: ['done'],
           },
           {
-            title: 'warnings before 60 psi',
-            attributes: ['audio and visual'],
+            title: 'low pressure warnings',
+            attributes: ['audio and visual', 'above 60 psi'],
           },
           {
-            title: 'auto parking brake around 25 psi',
-            attributes: [],
+            title: 'parking brake automatically engages',
+            attributes: ['around 25 psi'],
           },
         ],
       },
@@ -604,7 +604,74 @@ const array = [
         components: [
           {
             title: 'turn engine on',
-            attributes: [],
+            attributes: ['done'],
+          },
+          {
+            title: 'warnings turn off',
+            attributes: ['audio and visual', 'over 60 psi'],
+          },
+          {
+            title: 'time air build from 85-100 psi',
+            attributes: ['less than 45 seconds'],
+          },
+          {
+            title: 'governor cut out',
+            attributes: ['around 125 psi'],
+          },
+        ],
+      },
+      {
+        title: 'parking brake test',
+        components: [
+          {
+            title: 'set parking brake',
+            attributes: ['applied'],
+          },
+          {
+            title: 'remove wheel chocks',
+            attributes: ['removed'],
+          },
+          {
+            title: 'put transmission in drive',
+            attributes: ['check that engine is actually in gear'],
+          },
+          {
+            title: 'build engine speed to above 1000 rpm',
+            attributes: ['hold for a couple of seconds to test brakes'],
+          },
+        ],
+      },
+      {
+        title: 'service brake test',
+        components: [
+          {
+            title: 'release parking brake',
+            attributes: ['keep foot on service brake to prevent rolling'],
+          },
+          {
+            title: 'accelerate to five mph',
+            attributes: ['done'],
+          },
+          {
+            title: 'firmly brake',
+            attributes: ['check for vehicle pulling to one side or the other'],
+          },
+        ],
+      },
+      {
+        title: 'interlock test',
+        components: [
+          {
+            title: 'put vehicle in drive',
+            attributes: ['apply service brakes for safety'],
+          },
+          {
+            title: 'open passenger door',
+            attributes: ['interlock applied'],
+          },
+          {
+            title: 'gently push accelerator',
+            attributes: ['transmission should jump to neutral'],
           },
         ],
       },
@@ -613,7 +680,59 @@ const array = [
   {
     ID: 6,
     title: 'lights',
-    subsections: [],
+    subsections: [
+      {
+        title: 'lights the driver will check',
+        components: [
+          {
+            title: 'hazard lights',
+            attributes: ['working properly around the bus'],
+          },
+          {
+            title: 'headlights',
+            attributes: ['working properly'],
+          },
+          {
+            title: 'high beams',
+            attributes: ['working properly'],
+          },
+          {
+            title: 'right and left blinkers',
+            attributes: ['working properly around the bus'],
+          },
+          {
+            title: 'clearance lights',
+            attributes: [
+              'five in front',
+              'three on each side',
+              'five on back',
+              'all working properly',
+            ],
+          },
+          {
+            title: 'reflectors',
+            attributes: ['reflectors where legally required'],
+          },
+          {
+            title: 'license plate light',
+            attributes: ['working properly'],
+          },
+        ],
+      },
+      {
+        title: 'lights the tester will check',
+        components: [
+          {
+            title: 'reverse lights and alarm',
+            components: ['working properly', 'auditory backup warning'],
+          },
+          {
+            title: 'brake lights',
+            components: ['working properly'],
+          },
+        ],
+      },
+    ],
   },
 ];
 
