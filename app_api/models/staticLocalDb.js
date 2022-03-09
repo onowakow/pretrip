@@ -724,11 +724,11 @@ const array = [
         components: [
           {
             title: 'reverse lights and alarm',
-            components: ['working properly', 'auditory backup warning'],
+            attributes: ['working properly', 'auditory backup warning'],
           },
           {
             title: 'brake lights',
-            components: ['working properly'],
+            attributes: ['working properly'],
           },
         ],
       },
