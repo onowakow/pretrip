@@ -44,7 +44,7 @@ const array = [
   },
   {
     ID: 2,
-    title: 'engine compartment',
+    title: 'engine bay',
     subsections: [
       {
         title: 'passenger side',
