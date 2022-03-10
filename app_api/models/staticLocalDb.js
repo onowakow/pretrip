@@ -682,7 +682,7 @@ const array = [
     title: 'lights',
     subsections: [
       {
-        title: 'lights the driver will check',
+        title: 'checkable by yourself',
         components: [
           {
             title: 'hazard lights',
@@ -720,7 +720,7 @@ const array = [
         ],
       },
       {
-        title: 'lights the tester will check',
+        title: 'checkable by coworker or tester',
         components: [
           {
             title: 'reverse lights and alarm',

@@ -1,7 +1,6 @@
 // Object allows access to user's localStorage. Not for important or secure info.
 const localStorage = window.localStorage;
 
-// All elements with given class
 const toggleableNodeArr = document.querySelectorAll('.toggleable');
 const resetLocalStorageButtonArr =
   document.querySelectorAll('.resetLocalStorage');

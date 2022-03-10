@@ -1,3 +1,6 @@
+// local db does not require module
+if (process.env.USE_LOCAL_DB === 'true') return;
+
 /* This module may be reused from app to app. Simply include in
   app.js with require('/path') */
 

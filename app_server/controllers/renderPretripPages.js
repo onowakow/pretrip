@@ -35,7 +35,8 @@ const renderOneSectionPage = (req, res, responseBody) => {
 
   const section = responseBody;
   res.render('section', {
-    title: section.title,
+    toKebab: caseChange.toKebabCase,
+    sectionTitle: section.title,
     subsections: section.subsections,
     ID: section.ID,
   });
@@ -58,8 +59,16 @@ const renderSubsectionEdit = (req, res, responseBody) => {
   });
 };
 
+const renderNotFoundError = (req, res) => {
+  res.render('error', {
+    message: 'Page not found',
+    status: 404,
+  });
+};
+
 module.exports = {
   renderSectionTitlesPage,
   renderOneSectionPage,
   renderSubsectionEdit,
+  renderNotFoundError,
 };

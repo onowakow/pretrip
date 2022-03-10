@@ -1,3 +1,6 @@
+// local db option does not require mongoose
+if (process.env.USE_LOCAL_DB === 'true') return;
+
 const mongoose = require('mongoose');
 
 const componentSchema = new mongoose.Schema({

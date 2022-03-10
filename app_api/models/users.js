@@ -1,3 +1,6 @@
+// Local db option does not include users
+if (process.env.USE_LOCAL_DB === 'true') return;
+
 /* Much of the auth (login, registration, etc) code has been adapted from Getting MEAN by 
   Clive Harber and Simon Holmes */
 

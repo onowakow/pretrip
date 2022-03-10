@@ -2,7 +2,7 @@ extends layout
 
 block content
   .row
-    .pageTitle.capitalize=title
+    .pageTitle.capitalize=sectionTitle
   .row
   if !subsections.length
     .col
@@ -17,20 +17,21 @@ block content
           .row
             .col.d-flex.justify-content-between
               h2.capitalize.sectionTitle= subsection.title
-              a(href="/sections/edit")
+              a(href=`/sections/${toKebab(sectionTitle)}/${toKebab(subsection.title)}/edit`)
                 i.far.fa-edit
           p.text-muted.subtext #{subsection.components.length} components
           each component in subsection.components
-            .component
+            .component(id=component._id)
               .row
                 .col.d-flex.justify-content-between
                   h3.capitalize.componentTitle= component.title 
                   // i.far.fa-edit
               .row
               each attribute, index in component.attributes
-                input.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
+                input.attribute.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)
                 label(for=`{"${component._id}":"${index}"}`)=attribute
     .col.d-flex.justify-content-center
       a.mr.navLink-secondary(href='/sections') Back to title page
       a.navLink(href=`/sections/ID/${ID + 1}`) Next Section
-    script(src="../javascripts/section/sectionHandlers.js")
+    script(src="../javascripts/section/attributeClickHandlers.js")
+    script(src="../javascripts/section/sectionCompletionHandlers.js")

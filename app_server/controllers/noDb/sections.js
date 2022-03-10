@@ -1,22 +1,29 @@
-const titleToUrlFriendly = require('../../utilities/titleToUrlFriendly');
-const request = require('request');
+/* Not built out yet */
+
+// For client's option to not use database.
+const db = require('../../../app_api/models/staticLocalDb');
+
+// const titleToUrlFriendly = require('../../utilities/titleToUrlFriendly');
+// const request = require('request');
 const {
   renderOneSectionPage,
   renderSectionTitlesPage,
   renderSubsectionEdit,
   renderNotFoundError,
-} = require('./renderPretripPages');
+} = require('../renderPretripPages');
 
-// API OPTIONS
+/* API OPTIONS
 const apiOptions = {
   server: 'http://localhost:3000',
 };
 if (process.env.NODE_ENV === 'production') {
   apiOptions.server = 'http://uwyobus.herokuapp.com';
 }
+*/
 
-// Call page renders
 const sectionTitlesPage = (req, res) => {
+  const resBody = db;
+  /*
   const path = '/api/sections';
   const requestOptions = {
     url: `${apiOptions.server}${path}`,
@@ -32,6 +39,8 @@ const sectionTitlesPage = (req, res) => {
 
     renderSectionTitlesPage(req, res, body);
   });
+  */
+  renderSectionTitlesPage(req, res, resBody);
 };
 
 // Same function as oneSectionPage but routes by human ID

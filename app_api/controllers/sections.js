@@ -15,24 +15,34 @@ const getSections = (req, res) => {
     .find()
     .select(selectString)
     .exec((err, sections) => {
-      if (err) res.status(404).json({ message: 'sections not found' });
+      if (err) res.status(404).json(err);
       return res.status(200).json(sections);
     });
 };
 
 const getSectionsCount = (req, res) => {
   sectionModel.count({}).exec((err, count) => {
-    if (err) res.status(404).json({ message: 'sections not found' });
+    if (err) res.status(404).json(err);
     return res.status(200).json(count);
   });
 };
 
 const getSectionByHumanID = (req, res) => {
-  const ID = req.params.id;
+  const id = req.params.id;
 
-  sectionModel.findOne({ ID: ID }).exec((err, section) => {
-    if (err)
-      return res.status(404).json({ message: 'No sections found by that ID' });
+  // Error handling. Make sure ID is castable to a number
+  const castableToNumber = (str) => {
+    const test = Number(str);
+    console.log(test);
+    if (test === 'NaN') return false;
+    return true;
+  };
+  if (!castableToNumber(id))
+    return res.status(404).json({ message: 'id must be type number' });
+
+  sectionModel.findOne({ ID: id }).exec((err, section) => {
+    if (err) return res.status(404).json(err);
+    // section = null if fineOne returns no section
     return res.status(200).json(section);
   });
 };
