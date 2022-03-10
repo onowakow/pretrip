@@ -553,15 +553,15 @@ const array = [
         components: [
           {
             title: 'wheels chocked',
-            attributes: ['applied to passenger-side rear wheels'],
+            attributes: ['chocks on passenger-side rear wheel'],
           },
           {
             title: 'no brakes applied',
-            attributes: ['no interlock', 'no parking brake'],
+            attributes: ['interlock released', 'parking brake released'],
           },
           {
-            title: 'ignition switch at "accessories"',
-            attributes: ['done'],
+            title: 'ignition switch at accessories',
+            attributes: ['switch at accessories'],
           },
           {
             title: 'check brake pressure',
@@ -574,7 +574,7 @@ const array = [
         components: [
           {
             title: 'apply service brake',
-            attributes: ['done'],
+            attributes: ['service brake applied'],
           },
           {
             title: 'check brake pressure',
@@ -587,15 +587,15 @@ const array = [
         components: [
           {
             title: 'fan service brakes',
-            attributes: ['done'],
+            attributes: ['service brakes fanned'],
           },
           {
             title: 'low pressure warnings',
-            attributes: ['audio and visual', 'above 60 psi'],
+            attributes: ['warnings goes off above 60 psi', 'audio and visual'],
           },
           {
             title: 'parking brake automatically engages',
-            attributes: ['around 25 psi'],
+            attributes: ['brake engages around 25 psi'],
           },
         ],
       },
@@ -604,19 +604,19 @@ const array = [
         components: [
           {
             title: 'turn engine on',
-            attributes: ['done'],
+            attributes: ['Engine on'],
           },
           {
             title: 'warnings turn off',
-            attributes: ['audio and visual', 'over 60 psi'],
+            attributes: ['warnings turn off over 60 psi', 'audio and visual'],
           },
           {
             title: 'time air build from 85-100 psi',
-            attributes: ['less than 45 seconds'],
+            attributes: ['must take less than 45 seconds'],
           },
           {
             title: 'governor cut out',
-            attributes: ['around 125 psi'],
+            attributes: ['governor cuts out around 125 psi'],
           },
         ],
       },
@@ -625,19 +625,19 @@ const array = [
         components: [
           {
             title: 'set parking brake',
-            attributes: ['applied'],
+            attributes: ['parking brake applied'],
           },
           {
             title: 'remove wheel chocks',
-            attributes: ['removed'],
+            attributes: ['no chocks on bus'],
           },
           {
             title: 'put transmission in drive',
-            attributes: ['check that engine is actually in gear'],
+            attributes: ['transmission is in drive'],
           },
           {
-            title: 'build engine speed to above 1000 rpm',
-            attributes: ['hold for a couple of seconds to test brakes'],
+            title: 'build to 1000 revs and briefly pull against parking brake',
+            attributes: ['parking brake holds'],
           },
         ],
       },
@@ -650,7 +650,7 @@ const array = [
           },
           {
             title: 'accelerate to five mph',
-            attributes: ['done'],
+            attributes: ['speed reached'],
           },
           {
             title: 'firmly brake',
