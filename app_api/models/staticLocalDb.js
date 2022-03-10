@@ -553,7 +553,7 @@ const array = [
         components: [
           {
             title: 'wheels chocked',
-            attribute: ['applied to passenger-side rear wheels'],
+            attributes: ['applied to passenger-side rear wheels'],
           },
           {
             title: 'no brakes applied',
@@ -561,7 +561,7 @@ const array = [
           },
           {
             title: 'ignition switch at "accessories"',
-            attribute: ['done'],
+            attributes: ['done'],
           },
           {
             title: 'check brake pressure',

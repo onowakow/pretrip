@@ -53,11 +53,7 @@ a, a:hover, a:focus, a:active {
 }
 
 .complete {
-  border-color: yellow
-}
-
-.fade {
-  opacity: .5;
+  background-color: rgb(255, 248, 206) ;
 }
 
 .capitalize {
