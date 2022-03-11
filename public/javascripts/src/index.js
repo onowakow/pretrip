@@ -1,1 +1,1 @@
-import _ from './attributeClickHandlers';
+import './attributeClickHandlers/attributeClickHandlers';

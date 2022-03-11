@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
+    "watch": "webpack --watch",
     "build": "webpack"
   },
   "dependencies": {
