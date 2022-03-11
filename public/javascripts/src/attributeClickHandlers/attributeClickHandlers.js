@@ -6,10 +6,7 @@ const localStorage = window.localStorage;
 const toggleableNodeList = document.querySelectorAll('.toggleable');
 const componentsNodeList = document.querySelectorAll('.component');
 
-const updateChecksToReflectLocalStorage = (element) => {
-  element.checked = localStorage.getItem(element.id) === 'true' ? true : false;
-};
-
+// Reset buttons
 const resetLocalStorageButtonNodeList =
   document.querySelectorAll('.resetLocalStorage');
 
@@ -23,9 +20,8 @@ if (resetLocalStorageButtonNodeList) {
   });
 }
 
-// Update
-
-const handleClick = (e) => {
+// Attribute select
+const handleAttributeClick = (e) => {
   const component = e.path[1];
   const isChecked = e.target.checked;
   // JSON format {"id": "index"}
@@ -57,7 +53,7 @@ const updateAllAttributeChecksToLocalStorage = () => {
     toggleableNodeList.forEach((attribute) => {
       attribute.checked =
         localStorage.getItem(attribute.id) === 'true' ? true : false;
-      attribute.addEventListener('click', (e) => handleClick(e));
+      attribute.addEventListener('click', (e) => handleAttributeClick(e));
     });
   }
 };

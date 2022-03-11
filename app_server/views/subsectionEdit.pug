@@ -5,11 +5,12 @@ block content
     .pageTitle.capitalize=pageTitle
   .row
     h2.sectionTitle.capitalize=subsectionTitle
-  div(id='reactEditorContainer')
+    each component in components 
+      p=component.title
   
   // .components-edit-div
     each component, index in components
-      // button(value=`componentTitle-${index}`) edit
+      button(value=`componentTitle-${index}`) edit
       form.component.componentEditorDiv
         .form-group.componentEditorTitle
           label.componentEditorFieldTitle(for=`componentTitle-${index}`) Title 
@@ -23,8 +24,8 @@ block content
         button.navLink.navLink-green.addAttributeBtn Add attribute
 
   // React CDN
-  script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
-  script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
+  //script(src="https://unpkg.com/react@17/umd/react.development.js" crossorigin)
+  //script(src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin)
 
   // React scripts
-  script(src='../../../javascripts/react/edit_form.js')
+  //script(src='../../../javascripts/react/edit_form.js')
