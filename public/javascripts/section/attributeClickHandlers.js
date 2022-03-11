@@ -32,6 +32,7 @@ const handleClick = (e) => {
 
   const callback = (element) => {
     element.scrollIntoView(true);
+    element.classList.add('complete');
   };
 
   const negCallback = (element) => {};
