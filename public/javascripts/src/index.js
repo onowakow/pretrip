@@ -1,2 +1,2 @@
 import './attributeClickHandlers/attributeClickHandlers';
-import './subsectionEdit/subsectionEdit';
+import './subsectionEdit/index';

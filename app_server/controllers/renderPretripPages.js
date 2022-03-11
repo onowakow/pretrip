@@ -47,15 +47,23 @@ const renderSubsectionEdit = (req, res, responseBody) => {
     return res.render('error', { message: 'Page not found.', status: 404 });
 
   const subsection = responseBody;
-  const sectionTitle = responseBody.sectionTitle;
+  const sectionKebabTitle = responseBody.sectionTitle;
+  const sectionTitle = caseChange.toSpacedLowerCase(sectionKebabTitle);
 
   res.render('subsectionEdit', {
     pageTitle: 'Editor',
+    editorData: {
+      subsection,
+      sectionKebabTitle,
+      sectionTitle,
+    },
+    /*
     sectionKebabTitle: sectionTitle,
     subsectionTitle: subsection.title,
     subsectionKebabTitle: caseChange.toKebabCase(subsection.title),
     components: subsection.components,
     _id: subsection._id,
+    */
   });
 };
 

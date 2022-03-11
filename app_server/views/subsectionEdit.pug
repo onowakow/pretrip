@@ -5,8 +5,7 @@ block content
     .pageTitle.capitalize=pageTitle
   .row
     h2.sectionTitle.capitalize=subsectionTitle
-    each component in components 
-      p=component.title
+  div(id='subsectionEditor' data-react=editorData)
   
   // .components-edit-div
     each component, index in components
