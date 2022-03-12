@@ -5,3 +5,28 @@
 .editor-componentTitle {
   border: 2px solid grey
 }
+
+.editor-componentEditorGroup {
+  background-color: #fefefe;
+  border: 3px solid #f5f5f5;
+  border-radius: 3px;
+  padding: 1rem;
+  margin-bottom: .5rem;
+}
+
+.editor-inlineBtn {
+  display: inline;
+}
+
+.editor-attributeInputGroup {
+  margin-bottom: .5rem;
+}
+
+.editor-btnGroup {
+  display: flex;
+  justify-content: center;
+}
+
+Form.Control:invalid {
+  background-color: red;
+}

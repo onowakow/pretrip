@@ -2,7 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+import ComponentEditor from './ComponentEditor';
 
 const ComponentList = ({ components, goToPage }) => {
   return (
@@ -18,57 +18,6 @@ const ComponentList = ({ components, goToPage }) => {
         </Row>
       ))}
     </>
-  );
-};
-
-const ComponentEditor = ({ component }) => {
-  const [componentInputTitle, setComponentInputTitle] = useState(
-    component.title
-  );
-  const [componentAttributeArray, setComponentAttributeArray] = useState(
-    component.attributes
-  );
-
-  const handleComponentAttributeArrayEdit = (event, index) => {
-    const newAttributeValue = event.target.value;
-    let attributesCopy = componentAttributeArray.slice();
-    attributesCopy[index] = newAttributeValue;
-    setComponentAttributeArray(attributesCopy);
-  };
-
-  const addBlankAttribute = () => {
-    let attributeCopy = componentAttributeArray.slice();
-    attributeCopy.push('');
-    setComponentAttributeArray(attributeCopy);
-  };
-
-  return (
-    <Form>
-      <Form.Group controlId="componentTitle">
-        <Form.Label>Component title</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={(e) => setComponentInputTitle(e.target.value)}
-          value={componentInputTitle}
-        />
-      </Form.Group>
-      {componentAttributeArray.map((attribute, i) => {
-        return (
-          <Form.Group
-            key={`componentAttribute-${i}`}
-            controlId={`componentAttribute-${i}`}
-          >
-            <Form.Label>Attribute</Form.Label>
-            <Form.Control
-              onChange={(e) => handleComponentAttributeArrayEdit(e, i)}
-              type="text"
-              value={attribute}
-            />
-          </Form.Group>
-        );
-      })}
-      <Button onClick={addBlankAttribute}>Add attribute</Button>
-    </Form>
   );
 };
 
@@ -88,17 +37,24 @@ const Editor = ({ data }) => {
     return component;
   };
 
+  const handleCancelEdit = () => {
+    setOpenComponentId(undefined);
+  };
+
   return (
     <>
-      <h1 className="capitalize">{sectionTitle}</h1>
-      <h2 className="capitalize">{subsection.title}</h2>
+      <h2 className="capitalize">Section: {sectionTitle}</h2>
+      <h2 className="capitalize">Subsection: {subsection.title}</h2>
       {openComponentId === undefined ? (
         <ComponentList
           components={components}
           goToPage={goToComponentEditPage}
         />
       ) : (
-        <ComponentEditor component={getComponentDataFromId(openComponentId)} />
+        <ComponentEditor
+          handleCancelEdit={handleCancelEdit}
+          component={getComponentDataFromId(openComponentId)}
+        />
       )}
     </>
   );
