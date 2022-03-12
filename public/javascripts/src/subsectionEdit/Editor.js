@@ -9,12 +9,15 @@ const ComponentList = ({ components, goToPage }) => {
     <>
       {components.map((component) => (
         <Row key={component._id} className="editor-componentTitleRow">
-          <Button
-            onClick={() => goToPage(component._id)}
-            className="editor-componentTitle btn-light"
-          >
-            {component.title}
-          </Button>
+          <div className="editor-componentSelect">
+            <h3 className="capitalize">{component.title}</h3>
+            <Button
+              onClick={() => goToPage(component._id)}
+              className="btn-primary"
+            >
+              edit component
+            </Button>
+          </div>
         </Row>
       ))}
     </>
@@ -43,8 +46,11 @@ const Editor = ({ data }) => {
 
   return (
     <>
-      <h2 className="capitalize">Section: {sectionTitle}</h2>
-      <h2 className="capitalize">Subsection: {subsection.title}</h2>
+      <h2 style={{ fontWeight: 'normal' }}>Editing section: </h2>
+      <h2 className="capitalize">
+        <em>{subsection.title}</em>
+      </h2>
+      <hr />
       {openComponentId === undefined ? (
         <ComponentList
           components={components}

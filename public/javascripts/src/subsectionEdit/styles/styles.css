@@ -1,9 +1,17 @@
+#subsectionEditor {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 .editor-componentTitleRow {
   margin-bottom: 1rem
 }
 
-.editor-componentTitle {
-  border: 2px solid grey
+.editor-componentSelect {
+  padding: 10px 10px 10px 10px;
+  border: 2px solid black;
+  border-radius: 3px;
+  background-color: #FAF9F6;
 }
 
 .editor-componentEditorGroup {
@@ -13,6 +21,7 @@
   padding: 1rem;
   margin-bottom: .5rem;
 }
+
 
 .editor-inlineBtn {
   display: inline;
