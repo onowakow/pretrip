@@ -101,7 +101,9 @@ const notFoundError = (req, res) => {
 };
 
 const usersPage = (req, res) => {
-  res.render('users');
+  res.render('users', {
+    server: apiOptions.server,
+  });
 };
 
 module.exports = {

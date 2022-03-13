@@ -1,7 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './public/javascripts/src/index.js',
+  entry: [
+    'regenerator-runtime/runtime.js',
+    './public/javascripts/src/index.js',
+  ],
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, './public/javascripts/dist'),

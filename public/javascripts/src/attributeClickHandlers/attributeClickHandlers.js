@@ -74,3 +74,5 @@ const updateAllComponentsToLocalStorage = () => {
 // Must be in order: update attribute checks then update components
 updateAllAttributeChecksToLocalStorage();
 updateAllComponentsToLocalStorage();
+
+export default localStorage;

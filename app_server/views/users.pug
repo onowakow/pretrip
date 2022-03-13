@@ -5,16 +5,19 @@ block content
     .col.d-flex.justify-content-end
       a(href='/sections' class='homeButton') home
   .row
-    .pageTitle Login/Register
+    .pageTitle Login
   .row
     h1 Login
-    form(method='POST' action='http://localhost:3000/api/login' id='loginForm')
+    form(id='loginForm' data-server=server)
       label(for='email') Email
       br
-      input(type='email' class='mb-2' id='email' name='email')
+      input(type='email' class='mb-2' id='email' name='email' required)
       br
+      p.formErrorText(id='formErrorText-loginEmail' hidden) email or password is incorrect 
       label(for='password') Password
       br
-      input(type='password' class='mb-2' id='password' name='password')
+      input(type='password' class='mb-2' id='password' name='password' required)
       br
+      p.formErrorText(id='formErrorText-loginPassword' hidden) password is incorrect 
       button(type='submit') Login
+      button(id='logOutButton') Log out

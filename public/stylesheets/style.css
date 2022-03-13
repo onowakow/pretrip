@@ -160,3 +160,7 @@ input[type='checkbox']:checked + label {
   border-radius: 3px;
   background-color: #FAF9F6;
 }
+
+.formErrorText {
+  color: red
+}
