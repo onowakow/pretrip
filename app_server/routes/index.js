@@ -28,4 +28,7 @@ router.get(
   ctrlSections.subsectionEdit
 );
 
+// user Login/register
+router.get('/users', ctrlSections.usersPage);
+
 module.exports = router;

@@ -152,3 +152,11 @@ input[type='checkbox']:checked + label {
   padding: 5px;
   border-radius: 3px;
 }
+
+#loginForm {
+  padding: 10px 10px 10px 10px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background-color: #FAF9F6;
+}

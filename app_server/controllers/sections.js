@@ -100,10 +100,15 @@ const notFoundError = (req, res) => {
   renderNotFoundError(req, res);
 };
 
+const usersPage = (req, res) => {
+  res.render('users');
+};
+
 module.exports = {
   sectionTitlesPage,
   oneSectionPage,
   oneSectionPageById,
   subsectionEdit,
   notFoundError,
+  usersPage,
 };
