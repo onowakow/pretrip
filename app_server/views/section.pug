@@ -2,6 +2,9 @@ extends layout
 
 block content
   .row
+    .col.d-flex.justify-content-end
+      a(href='/sections' class='homeButton') home
+  .row
     .pageTitle.capitalize=sectionTitle
   .row
   if !subsections.length

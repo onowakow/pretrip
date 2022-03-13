@@ -36,7 +36,7 @@ userSchema.methods.validatePassword = function (password) {
   return this.hash === hash;
 };
 
-userSchema.methods.generateJwt = () => {
+userSchema.methods.generateJwt = function () {
   const expiry = new Date();
   // sets expiration one week out
   expiry.setDate(expiry.getDate() + 7);

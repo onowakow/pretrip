@@ -144,3 +144,11 @@ input[type='checkbox']:checked + label {
 .componentEditorFieldTitle {
   font-size: 1.25em;
 }
+
+.homeButton {
+  border: 1px solid lightgrey;
+  background-color: skyblue;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}

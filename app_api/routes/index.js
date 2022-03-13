@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('express-jwt');
+const jwt = require('jsonwebtoken');
 
-// Remove if client does not want auth
-const auth = jwt({
-  secret: process.env.JWT_SECRET,
-  algorithms: ['HS256'],
-});
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+  if (token == null) return res.status(401).json({ message: 'no token sent' });
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) return res.status(403).json({ messagae: 'token is invalid' });
+    req.user = user;
+    next();
+  });
+}
 
 const ctrlSections = require('../controllers/sections');
 const ctrlAuth = require('../controllers/authentication');
@@ -20,7 +26,9 @@ router
   .route('/sections/:sectiontitle/:subsectiontitle')
   .get(ctrlSections.getSubsection);
 // Auth added here if being included
-router.route('/sections/reset').post(auth, ctrlSections.resetSections);
+router
+  .route('/sections/reset')
+  .post(authenticateToken, ctrlSections.resetSections);
 
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
