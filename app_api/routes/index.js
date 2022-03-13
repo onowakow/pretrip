@@ -5,7 +5,6 @@ const jwt = require('express-jwt');
 // Remove if client does not want auth
 const auth = jwt({
   secret: process.env.JWT_SECRET,
-  userProperty: 'payload',
   algorithms: ['HS256'],
 });
 
@@ -21,7 +20,7 @@ router
   .route('/sections/:sectiontitle/:subsectiontitle')
   .get(ctrlSections.getSubsection);
 // Auth added here if being included
-router.route('/sections/reset').post(ctrlSections.resetSections);
+router.route('/sections/reset').post(auth, ctrlSections.resetSections);
 
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);

@@ -4,9 +4,14 @@ import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ComponentEditor from './ComponentEditor';
 
-const ComponentList = ({ components, goToPage }) => {
+const ComponentList = ({ subsectionTitle, components, goToPage }) => {
   return (
     <>
+      <h2 style={{ fontWeight: 'normal' }}>Editing subsection: </h2>
+      <h2 className="capitalize">
+        <em>{subsectionTitle}</em>
+      </h2>
+      <hr />
       {components.map((component) => (
         <Row key={component._id} className="editor-componentTitleRow">
           <div className="editor-componentSelect">
@@ -46,13 +51,9 @@ const Editor = ({ data }) => {
 
   return (
     <>
-      <h2 style={{ fontWeight: 'normal' }}>Editing section: </h2>
-      <h2 className="capitalize">
-        <em>{subsection.title}</em>
-      </h2>
-      <hr />
       {openComponentId === undefined ? (
         <ComponentList
+          subsectionTitle={subsection.title}
           components={components}
           goToPage={goToComponentEditPage}
         />

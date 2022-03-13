@@ -20,15 +20,29 @@ const ComponentEditor = ({ component, handleCancelEdit }) => {
     setComponentAttributeArray(attributesCopy);
   };
 
-  const addBlankAttribute = () => {
-    let attributeCopy = componentAttributeArray.slice();
-    attributeCopy.push('');
-    setComponentAttributeArray(attributeCopy);
+  const addBlankAttribute = (index) => {
+    const attributeCopy = componentAttributeArray.slice();
+    const length = attributeCopy.length;
+    let newArr = attributeCopy.slice(0, index + 1);
+    newArr.push('');
+    newArr.push(...attributeCopy.slice(index + 1, length));
+    setComponentAttributeArray(newArr);
+  };
+
+  const deleteAttribute = (index) => {
+    const attributeCopy = componentAttributeArray.slice();
+    const length = attributeCopy.length;
+    let newArr = attributeCopy.slice(0, index);
+    newArr.push(...attributeCopy.slice(index + 1, length));
+    setComponentAttributeArray(newArr);
   };
 
   return (
     <Form>
-      <h2 className="capitalize">Component: {componentInputTitle}</h2>
+      <h2 style={{ fontWeight: 'normal' }}>Editing component: </h2>
+      <h2 className="capitalize">
+        <em>{component.title}</em>
+      </h2>
       <hr />
       <Form.Group
         controlId="componentTitle"
@@ -42,12 +56,14 @@ const ComponentEditor = ({ component, handleCancelEdit }) => {
         />
       </Form.Group>
       <div className="editor-componentEditorGroup">
+        <Form.Text>
+          Remember to save all changes using the save button below.
+        </Form.Text>
         {componentAttributeArray.map((attribute, i) => {
           return (
-            <>
+            <React.Fragment key={`componentAttribute-${i}`}>
               <Form.Group
                 className="editor-attributeInputGroup"
-                key={`componentAttribute-${i}`}
                 controlId={`componentAttribute-${i}`}
               >
                 <Form.Label>Attribute</Form.Label>
@@ -62,14 +78,19 @@ const ComponentEditor = ({ component, handleCancelEdit }) => {
                 <Button
                   style={{ marginRight: '.5rem' }}
                   className="btn-danger editor-btn"
+                  onClick={() => deleteAttribute(i)}
                 >
-                  Delete attribute
+                  Remove attribute
                 </Button>
-                <Button className="editor-btn" onClick={addBlankAttribute}>
+                <Button
+                  className="editor-btn"
+                  onClick={() => addBlankAttribute(i)}
+                >
                   Add attribute
                 </Button>
               </div>
-            </>
+              <hr />
+            </React.Fragment>
           );
         })}
       </div>

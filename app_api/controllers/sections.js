@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const caseChange = require('../../utilities/caseChange');
-const sectionModel = mongoose.model('Section');
+const SectionModel = mongoose.model('Section');
 const staticLocalDb = require('../models/staticLocalDb');
+const UserModel = mongoose.model('User');
 
 const getSections = (req, res) => {
   const fields = req.query.fields;
@@ -11,8 +12,7 @@ const getSections = (req, res) => {
     selectString = fields.replace(',', ' ');
   }
 
-  sectionModel
-    .find()
+  SectionModel.find()
     .select(selectString)
     .exec((err, sections) => {
       if (err) res.status(404).json(err);
@@ -21,7 +21,7 @@ const getSections = (req, res) => {
 };
 
 const getSectionsCount = (req, res) => {
-  sectionModel.count({}).exec((err, count) => {
+  SectionModel.count({}).exec((err, count) => {
     if (err) res.status(404).json(err);
     return res.status(200).json(count);
   });
@@ -40,7 +40,7 @@ const getSectionByHumanID = (req, res) => {
   if (!castableToNumber(id))
     return res.status(404).json({ message: 'id must be type number' });
 
-  sectionModel.findOne({ ID: id }).exec((err, section) => {
+  SectionModel.findOne({ ID: id }).exec((err, section) => {
     if (err) return res.status(404).json(err);
     // section = null if fineOne returns no section
     return res.status(200).json(section);
@@ -50,9 +50,9 @@ const getSectionByHumanID = (req, res) => {
 const getSectionByTitle = async (req, res) => {
   const kebabSectionTitle = req.params.sectiontitle;
   try {
-    const section = await sectionModel
-      .findSectionByKebabTitle(kebabSectionTitle)
-      .exec();
+    const section = await SectionModel.findSectionByKebabTitle(
+      kebabSectionTitle
+    ).exec();
     return res.status(200).json(section);
   } catch (err) {
     return res.status(404).json(err);
@@ -65,9 +65,9 @@ const getSubsection = async (req, res) => {
   const dbSubsectionTitle = caseChange.toSpacedLowerCase(kebabSubsectionTitle);
 
   try {
-    const section = await sectionModel
-      .findSectionByKebabTitle(kebabSectionTitle)
-      .exec();
+    const section = await SectionModel.findSectionByKebabTitle(
+      kebabSectionTitle
+    ).exec();
 
     const subsection = section.subsections.find(
       (subsection) => (subsection.title = dbSubsectionTitle)
@@ -86,7 +86,7 @@ const createSection = (req, res) => {
   const newSection = {
     title: req.body.title,
   };
-  sectionModel.create(newSection).exec((err, newSection) => {
+  SectionModel.create(newSection).exec((err, newSection) => {
     if (err)
       return res.status(404).json({ message: 'Failed to create section' });
     return res.status(200).json(newSection);
@@ -97,13 +97,13 @@ const createSection = (req, res) => {
 const resetSections = (req, res) => {
   const successResponse = {};
 
-  sectionModel.deleteMany({}).exec((err, response) => {
+  SectionModel.deleteMany({}).exec((err, response) => {
     if (err)
       return res.status(404).json({ message: 'Failed to delete sections' });
     successResponse.deleteMany = 'Successfully deleted all section documents';
   });
 
-  sectionModel.insertMany(staticLocalDb, (err, data) => {
+  SectionModel.insertMany(staticLocalDb, (err, data) => {
     if (err)
       return res.status(404).json({ message: 'Failed to reset sections' });
     successResponse.insertMany =
