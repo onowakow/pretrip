@@ -2,7 +2,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #FFFFFE;
-  padding-bottom: 5em;
+  /* padding-bottom: 5em;*/
   padding-top: 6em;
   scroll-padding-top: 10px;
 }
@@ -11,6 +11,21 @@ body {
   body {
     padding: 16px;
   }
+}
+
+.logo {
+  height: 2.5rem;
+  border: .1rem solid black;
+  background-color: #FFF8dc;
+  border-radius: 2px;
+  padding: 2px;
+  margin-right: 1rem;
+  margin-bottom: 6px;
+  box-shadow: 1px 1px 3px skyblue
+}
+
+.logoLink {
+  display: inline-block
 }
 
 a {
@@ -29,10 +44,17 @@ a {
 }
 
 .pageTitle {
+  display: inline-block;
+}
+
+.titleUnderlineCol {
   font-size: 2.3rem;
   border-bottom: 3px solid gold;
   padding-bottom: .25em;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 a, a:hover, a:focus, a:active {
@@ -92,10 +114,11 @@ input[type='checkbox']:checked + label {
 }
 /* END CHECKBOX STYLING */
 
+  /* aka reset pretrip */
 .resetLocalStorage {
   border-radius: 3px;
-  border: none;
-  background-color: gold;
+  border: 2px solid gold;
+  /* background-color: gold;*/
   padding: 7px;
   margin-bottom: 1rem;
 }
@@ -106,6 +129,12 @@ input[type='checkbox']:checked + label {
 
 .sectionTitle {
   margin-bottom: 0;
+}
+
+#adminNotice {
+  position: absolute;
+  top: .4rem;
+  right: 1rem;
 }
 
 .navLink {

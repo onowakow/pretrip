@@ -1,11 +1,9 @@
 extends layout
 
+block variables
+  - var pageTitle='Editor'
+
 block content
-  .row
-    .col.d-flex.justify-content-end
-      a(href='/sections' class='homeButton') home
-  .row
-    .pageTitle.capitalize=pageTitle
   .row
     h2.sectionTitle.capitalize=subsectionTitle
   div(id='subsectionEditor' data-react=editorData)

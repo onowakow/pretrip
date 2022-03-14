@@ -1,8 +1,9 @@
 extends layout
 
+block variables 
+  - var pageTitle='My Pretrip'
+
 block content
-  .row
-    .pageTitle="My pretrip"
   .row.g-2
     each section in viewData
       a.section(href=`/sections/${section.kebabTitle}`)

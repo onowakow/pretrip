@@ -1,11 +1,9 @@
 extends layout
 
+block variables 
+  - var pageTitle=sectionTitle
+
 block content
-  .row
-    .col.d-flex.justify-content-end
-      a(href='/sections' class='homeButton') home
-  .row
-    .pageTitle.capitalize=sectionTitle
   .row
   if !subsections.length
     .col
@@ -28,7 +26,6 @@ block content
               .row
                 .col.d-flex.justify-content-between
                   h3.capitalize.componentTitle= component.title 
-                  // i.far.fa-edit
               .row
               each attribute, index in component.attributes
                 input.attribute.toggleable(type="checkbox", value=attribute, name=index, id=`{"${component._id}":"${index}"}`)

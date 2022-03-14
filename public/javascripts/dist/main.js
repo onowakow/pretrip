@@ -93,7 +93,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _attributeClickHandlers_attributeClickHandlers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../attributeClickHandlers/attributeClickHandlers */ \"./public/javascripts/src/attributeClickHandlers/attributeClickHandlers.js\");\n\nvar adminNotice = document.getElementById('adminNotice');\n\nif (adminNotice) {\n  var userJWT = _attributeClickHandlers_attributeClickHandlers__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getItem('userJWT');\n  console.log(userJWT);\n  if (userJWT) adminNotice.removeAttribute('hidden');\n  var payload = userJWT.split('.')[1];\n  console.log(atob(payload));\n}\n\n//# sourceURL=webpack://pretrip/./public/javascripts/src/users/isLoggedIn.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _attributeClickHandlers_attributeClickHandlers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../attributeClickHandlers/attributeClickHandlers */ \"./public/javascripts/src/attributeClickHandlers/attributeClickHandlers.js\");\n\nvar adminNotice = document.getElementById('adminNotice');\n\nif (adminNotice) {\n  var userJWT = _attributeClickHandlers_attributeClickHandlers__WEBPACK_IMPORTED_MODULE_0__[\"default\"].getItem('userJWT');\n  if (userJWT) adminNotice.removeAttribute('hidden');\n  var payload = userJWT.split('.')[1];\n  console.log(window.atob(payload));\n}\n\n//# sourceURL=webpack://pretrip/./public/javascripts/src/users/isLoggedIn.js?");
 
 /***/ }),
 
@@ -996,7 +996,8 @@ eval("module.exports = \"data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/20
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	__webpack_require__("./node_modules/regenerator-runtime/runtime.js");
 /******/ 	var __webpack_exports__ = __webpack_require__("./public/javascripts/src/index.js");
 /******/ 	
 /******/ })()

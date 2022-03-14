@@ -1,11 +1,7 @@
 extends layout 
-
+block variables
+  - var pageTitle='Login'
 block content 
-  .row
-    .col.d-flex.justify-content-end
-      a(href='/sections' class='homeButton') home
-  .row
-    .pageTitle Login
   .row
     h1 Login
     form(id='loginForm' data-server=server)
