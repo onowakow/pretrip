@@ -40,4 +40,12 @@ if (form) {
       }
     };
   });
+
+  const logUserOut = () => {
+    localStorage.removeItem('userJWT');
+    window.location.replace(`${serverUrl}/sections`);
+  };
+
+  const logOutButton = document.getElementById('logOutButton');
+  logOutButton.addEventListener('click', logUserOut);
 }

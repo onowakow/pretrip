@@ -12,7 +12,9 @@ html
     title My Pretrip
   body
     .container-sm
-      p(id='adminNotice' hidden) Logged in as Admin
+      .userLoginAndInfo
+        p(id='adminNotice')
+        a(id='loginLink' href="/users") Login/Logout
       .row
         .col.titleUnderlineCol
           a.logoLink(href='/sections')

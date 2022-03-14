@@ -14,6 +14,9 @@ block content
       br
       input(type='password' class='mb-2' id='password' name='password' required)
       br
-      p.formErrorText(id='formErrorText-loginPassword' hidden) password is incorrect 
-      button(type='submit') Login
-      button(id='logOutButton') Log out
+      p.formErrorText(id='formErrorText-loginPassword' hidden) password is incorrect
+      button(class='navLink' type='submit' style="margin-right: 1rem") Login
+    .col
+      button(class='navLink navLink-green' id='logOutButton') Log out
+  //navLink
+  // navLink-green

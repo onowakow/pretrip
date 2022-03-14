@@ -1,4 +1,4 @@
 import './attributeClickHandlers/attributeClickHandlers';
 import './subsectionEdit/index';
-import './users/login';
+import './users/loginAndOut';
 import './users/isLoggedIn';

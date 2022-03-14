@@ -28,11 +28,8 @@ body {
   display: inline-block
 }
 
-a {
-  color: #00B7FF;
-}
-
 .section {
+  text-decoration: none;
   padding: 1em;
   padding-bottom: 5px;
 }
@@ -58,7 +55,7 @@ a {
 }
 
 a, a:hover, a:focus, a:active {
-  text-decoration: none !important;
+  text-decoration: none;
   color: inherit !important;
 }
 
@@ -131,11 +128,21 @@ input[type='checkbox']:checked + label {
   margin-bottom: 0;
 }
 
-#adminNotice {
-  position: absolute;
-  top: .4rem;
-  right: 1rem;
+.userLoginAndInfo {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
 }
+
+#adminNotice {
+  display: inline-block;
+}
+
+#loginLink {
+  display: inline-block;
+  text-decoration: underline;
+}
+
 
 .navLink {
   background-color: skyblue;
