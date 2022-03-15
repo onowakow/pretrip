@@ -2,17 +2,16 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
-const registrationDisabled = true;
-
 const register = (req, res) => {
-  if (registrationDisabled) {
-    console.log(
-      'Registration temporarily disabled at line 9 of app_api/controllers/authentication.js'
-    );
-    return;
-  }
   if (!req.body.name || !req.body.email || !req.body.password)
     return res.status(400).json({ message: 'All fields required' });
+  if (!req.headers.authorization)
+    return res
+      .status(403)
+      .json({ message: 'Must include Authorization header' });
+  if (req.headers.authorization !== process.env.REGISTRATION_PASS)
+    return res.status(403).json({ message: 'Registration password incorrect' });
+
   const user = new User();
   user.name = req.body.name;
   user.email = req.body.email;
