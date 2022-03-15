@@ -1,10 +1,22 @@
 import forComponentAreAllAttributesSelected from './forComponentAreAllAttributesSelected.js';
 
+const getLocalStorageIdFromAttributeId = (attributeId) => {
+  return `attribute: ${attributeId}`;
+};
+
 // User's localStorage. Not for important or secure info.
 const localStorage = window.localStorage;
 
 const toggleableNodeList = document.querySelectorAll('.toggleable');
 const componentsNodeList = document.querySelectorAll('.component');
+
+const clearAttributeDataFromLocalStorage = () => {
+  Object.keys(localStorage).forEach((localStorageId) => {
+    if (localStorageId.split(':')[0] === 'attribute') {
+      localStorage.removeItem(localStorageId);
+    }
+  });
+};
 
 // Reset buttons
 const resetLocalStorageButtonNodeList =
@@ -13,7 +25,7 @@ const resetLocalStorageButtonNodeList =
 if (resetLocalStorageButtonNodeList) {
   resetLocalStorageButtonNodeList.forEach((element) => {
     element.addEventListener('click', () => {
-      localStorage.clear();
+      clearAttributeDataFromLocalStorage();
       updateAllAttributeChecksToLocalStorage();
       updateAllComponentsToLocalStorage();
     });
@@ -24,9 +36,14 @@ if (resetLocalStorageButtonNodeList) {
 const handleAttributeClick = (e) => {
   const component = e.path[1];
   const isChecked = e.target.checked;
+  const attributeId = e.target.id;
   // JSON format {"id": "index"}
-  const id = e.target.id;
-  localStorage.setItem(id, isChecked);
+  const id = getLocalStorageIdFromAttributeId(attributeId);
+  if (!isChecked) {
+    localStorage.removeItem(id);
+  } else {
+    localStorage.setItem(id, isChecked);
+  }
 
   const allSelected = forComponentAreAllAttributesSelected(component);
 
@@ -51,8 +68,10 @@ const updateAllAttributeChecksToLocalStorage = () => {
   // update checks to reflect local storage and add event handlers
   if (toggleableNodeList) {
     toggleableNodeList.forEach((attribute) => {
+      const attributeId = attribute.id;
+      const localStorageId = getLocalStorageIdFromAttributeId(attributeId);
       attribute.checked =
-        localStorage.getItem(attribute.id) === 'true' ? true : false;
+        localStorage.getItem(localStorageId) === 'true' ? true : false;
       attribute.addEventListener('click', (e) => handleAttributeClick(e));
     });
   }
