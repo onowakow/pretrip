@@ -4,19 +4,20 @@ block variables
 block content 
   .row
     h1 Login
-    form(id='loginForm' data-server=server)
-      label(for='email') Email
-      br
-      input(type='email' class='mb-2' id='email' name='email' required)
-      br
-      p.formErrorText(id='formErrorText-loginEmail' hidden) email or password is incorrect 
-      label(for='password') Password
-      br
-      input(type='password' class='mb-2' id='password' name='password' required)
-      br
-      p.formErrorText(id='formErrorText-loginPassword' hidden) password is incorrect
-      button(class='navLink' type='submit' style="margin-right: 1rem") Login
+  .row
+    .col
+      form(id='loginForm' data-server=server)
+        label(for='email') Email
+        br
+        input(type='email' class='mb-2' id='email' name='email' required)
+        br
+        p.formErrorText(id='formErrorText-loginEmail' hidden) email or password is incorrect 
+        label(for='password') Password
+        br
+        input(type='password' class='mb-2' id='password' name='password' required)
+        br
+        p.formErrorText(id='formErrorText-loginPassword' hidden) password is incorrect
+        button(class='navLink' type='submit' style="margin-right: 1rem") Login
+  .row
     .col
       button(class='navLink navLink-green' id='logOutButton') Log out
-  //navLink
-  // navLink-green
