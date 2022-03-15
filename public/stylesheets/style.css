@@ -147,7 +147,8 @@ input[type='checkbox']:checked + label {
 .navLink {
   background-color: skyblue;
   border-radius: 3px;
-  padding: 7px
+  padding: 7px;
+  text-decoration: none;
 }
 
 .navLink-green {
@@ -159,6 +160,7 @@ input[type='checkbox']:checked + label {
   background-color: #FAF9F6;
   border-radius: 3px;
   padding: 7px;
+  text-decoration: none;
 }
 
 .mr {

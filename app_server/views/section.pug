@@ -18,7 +18,7 @@ block content
           .row
             .col.d-flex.justify-content-between
               h2.capitalize.sectionTitle= subsection.title
-              a(href=`/sections/${toKebab(sectionTitle)}/${toKebab(subsection.title)}/edit`)
+              a(class='editIconLink' href=`/sections/${toKebab(sectionTitle)}/${toKebab(subsection.title)}/edit` hidden)
                 i.far.fa-edit
           p.text-muted.subtext #{subsection.components.length} components
           each component in subsection.components

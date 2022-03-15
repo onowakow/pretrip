@@ -3,9 +3,12 @@ import 'regenerator-runtime/runtime';
 
 const form = document.getElementById('loginForm');
 
-const logUserOut = () => {
+const removeUserJwt = () => {
+  localStorage.removeItem('userJwt');
+};
+
+const sendUserHome = () => {
   const origin = window.location.origin;
-  localStorage.removeItem('userJWT');
   window.location.replace(`${origin}/sections`);
 };
 
@@ -43,14 +46,17 @@ const logUserOut = () => {
         }
       } else if (data.token) {
         const token = data.token;
-        localStorage.setItem('userJWT', token);
+        localStorage.setItem('userJwt', token);
         window.location.replace(`${serverUrl}/sections`);
       }
     };
   });
 
   const logOutButton = document.getElementById('logOutButton');
-  logOutButton.addEventListener('click', logUserOut);
+  logOutButton.addEventListener('click', () => {
+    removeUserJwt();
+    sendUserHome();
+  });
 })();
 
-export default logUserOut;
+export default { removeUserJwt, sendUserHome };

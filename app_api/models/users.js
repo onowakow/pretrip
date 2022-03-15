@@ -38,8 +38,8 @@ userSchema.methods.validatePassword = function (password) {
 
 userSchema.methods.generateJwt = function () {
   const now = Date.now();
-  // sets expiration one minute out
-  const expiry = now + 60 * 1000;
+  // sets expiration 12 hrs out
+  const expiry = now + 12 * 60 * 60 * 1000;
 
   return jwt.sign(
     {
