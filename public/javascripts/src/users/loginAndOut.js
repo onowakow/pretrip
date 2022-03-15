@@ -3,7 +3,15 @@ import 'regenerator-runtime/runtime';
 
 const form = document.getElementById('loginForm');
 
-if (form) {
+const logUserOut = () => {
+  const origin = window.location.origin;
+  localStorage.removeItem('userJWT');
+  window.location.replace(`${origin}/sections`);
+};
+
+(function ifFormHandleFormSubmissionData() {
+  if (!form) return;
+
   const serverUrl = form.getAttribute('data-server');
 
   form.addEventListener('submit', async (event) => {
@@ -41,11 +49,8 @@ if (form) {
     };
   });
 
-  const logUserOut = () => {
-    localStorage.removeItem('userJWT');
-    window.location.replace(`${serverUrl}/sections`);
-  };
-
   const logOutButton = document.getElementById('logOutButton');
   logOutButton.addEventListener('click', logUserOut);
-}
+})();
+
+export default logUserOut;

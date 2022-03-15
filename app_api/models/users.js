@@ -37,15 +37,16 @@ userSchema.methods.validatePassword = function (password) {
 };
 
 userSchema.methods.generateJwt = function () {
-  const expiry = new Date();
-  // sets expiration one week out
-  expiry.setDate(expiry.getDate() + 1);
+  const now = Date.now();
+  // sets expiration one minute out
+  const expiry = now + 60 * 1000;
+
   return jwt.sign(
     {
       _id: this._id,
       email: this.email,
       name: this.name,
-      exp: parseInt(expiry.getTime(), 10),
+      exp: expiry,
     },
     process.env.JWT_SECRET
   );

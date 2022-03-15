@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const caseChange = require('../../utilities/caseChange');
 const SectionModel = mongoose.model('Section');
 const staticLocalDb = require('../models/staticLocalDb');
-const UserModel = mongoose.model('User');
 
 const getSections = (req, res) => {
   const fields = req.query.fields;
