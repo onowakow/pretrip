@@ -19,7 +19,7 @@ const U = 'unobstructed';
 const L = 'not leaking';
 const Blt = 'belt driven';
 const Gr = 'gear driven';
-const BP = 'belt play less that 3/4"';
+const BP = 'belt play less than 3/4"';
 
 const array = [
   {

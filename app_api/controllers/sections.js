@@ -80,6 +80,11 @@ const getSubsection = async (req, res) => {
   }
 };
 
+const editComponent = (req, res) => {
+  res.status(200).json({ message: 'editComponent is live. Hooray!' });
+  //if (!req.body.title)
+};
+
 /*
 const createSection = (req, res) => {
   const newSection = {
@@ -119,4 +124,5 @@ module.exports = {
   getSectionByHumanID,
   getSectionsCount,
   getSubsection,
+  editComponent,
 };
