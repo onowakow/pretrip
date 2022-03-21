@@ -24,7 +24,11 @@ router.get('/sections/id/:id', ctrlSections.oneSectionPageById);
 
 // Edit page for entire section.
 router.get(
-  '/sections/:sectiontitle/:subsectiontitle/edit/',
+  '/sections/:sectiontitle/:subsectiontitle/edit',
+  ctrlSections.subsectionEdit
+);
+router.get(
+  '/sections/:sectiontitle/:subsectiontitle/edit/*',
   ctrlSections.subsectionEdit
 );
 

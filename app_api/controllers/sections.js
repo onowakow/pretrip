@@ -68,21 +68,22 @@ const getSubsection = async (req, res) => {
       kebabSectionTitle
     ).exec();
 
+    if (!section) return res.status(404).json({ message: 'Section not found' });
+
     const subsection = section.subsections.find(
       (subsection) => (subsection.title = dbSubsectionTitle)
     );
 
     if (!subsection)
-      return res.status(404).json({ message: 'No subsection found' });
+      return res.status(404).json({ message: 'Subsection not found' });
     return res.status(200).json(subsection);
   } catch (err) {
     return res.status(404).json(err);
   }
 };
 
-const editComponent = (req, res) => {
+const editComponent = async (req, res) => {
   res.status(200).json({ message: 'editComponent is live. Hooray!' });
-  //if (!req.body.title)
 };
 
 /*

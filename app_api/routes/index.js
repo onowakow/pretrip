@@ -25,11 +25,12 @@ router.route('/sections/:sectiontitle').get(ctrlSections.getSectionByTitle);
 router
   .route('/sections/:sectiontitle/:subsectiontitle')
   .get(ctrlSections.getSubsection);
-// Auth added here if being included
+router
+  .route('/sections/:sectiontitle/:subsectiontitle/edit/:componentid')
+  .post(authenticateToken, ctrlSections.editComponent);
 router
   .route('/sections/reset')
   .post(authenticateToken, ctrlSections.resetSections);
-
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 

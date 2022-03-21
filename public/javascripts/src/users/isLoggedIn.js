@@ -7,7 +7,6 @@ const getUserJwt = () => {
 
 const dateIsExpired = (exp) => {
   const now = Date.now();
-  console.log(exp, now);
   if (exp < now) return true;
   return false;
 };

@@ -43,6 +43,10 @@ sectionSchema.statics.findSectionByKebabTitle = function (kebabTitle) {
   return this.model('Section').findOne({ title: sectionTitle });
 };
 
+componentSchema.methods.hello = function () {
+  console.log('hello!');
+};
+
 const Section = mongoose.model('Section', sectionSchema, 'sections');
 
 module.exports = { Section };

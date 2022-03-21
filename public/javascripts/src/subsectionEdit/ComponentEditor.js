@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
 import Form from 'react-bootstrap/Form';
-import { InputGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const ComponentEditor = ({ component, handleCancelEdit }) => {
+const ComponentEditor = ({ component, homeUrl }) => {
   const [componentInputTitle, setComponentInputTitle] = useState(
     component.title
   );
@@ -103,9 +103,9 @@ const ComponentEditor = ({ component, handleCancelEdit }) => {
         >
           Save changes
         </Button>
-        <Button onClick={handleCancelEdit} className="editor-btn btn-warning">
-          Cancel edit
-        </Button>
+        <Link to={homeUrl}>
+          <Button className="editor-btn btn-warning">Cancel edit</Button>
+        </Link>
       </div>
     </Form>
   );

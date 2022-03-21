@@ -3,8 +3,11 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ComponentEditor from './ComponentEditor';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-const ComponentList = ({ subsectionTitle, components, goToPage }) => {
+const ComponentList = ({ subsectionTitle, components, basePath }) => {
+  // We need the origin to include all parts of URL, up to and including 'Edit'
+
   return (
     <>
       <h2 style={{ fontWeight: 'normal' }}>Editing subsection: </h2>
@@ -13,57 +16,55 @@ const ComponentList = ({ subsectionTitle, components, goToPage }) => {
       </h2>
       <hr />
       {components.map((component) => (
-        <Row key={component._id} className="editor-componentTitleRow">
-          <div className="editor-componentSelect">
-            <h3 className="capitalize">{component.title}</h3>
-            <Button
-              onClick={() => goToPage(component._id)}
-              className="btn-primary"
-            >
-              edit component
-            </Button>
-          </div>
-        </Row>
+        <nav key={component._id}>
+          <Row className="editor-componentTitleRow">
+            <div className="editor-componentSelect">
+              <h3 className="capitalize">{component.title}</h3>
+              <Link to={`${basePath}/${component._id}`}>
+                <Button className="btn-primary">edit component</Button>
+              </Link>
+            </div>
+          </Row>
+        </nav>
       ))}
     </>
   );
 };
 
+// Editor() is the main component
 const Editor = ({ data }) => {
-  const [openComponentId, setOpenComponentId] = useState(undefined);
   const { subsection, sectionKebabTitle, sectionTitle } = data;
   const components = subsection.components;
 
-  const goToComponentEditPage = (componentId) => {
-    setOpenComponentId(componentId);
-  };
-
-  const getComponentDataFromId = (componentId) => {
-    const component = components.find(
-      (component) => component._id === componentId
-    );
-    return component;
-  };
-
-  const handleCancelEdit = () => {
-    setOpenComponentId(undefined);
-  };
+  const origin = window.location.origin;
+  const path = window.location.pathname;
+  const basePath = path.split('/').slice(0, 5).join('/');
+  const baseUrl = origin + basePath;
 
   return (
-    <>
-      {openComponentId === undefined ? (
-        <ComponentList
-          subsectionTitle={subsection.title}
-          components={components}
-          goToPage={goToComponentEditPage}
+    <Router>
+      <Routes>
+        {components.map((component) => (
+          <Route
+            key={component._id}
+            path={`${basePath}/${component._id}`}
+            element={
+              <ComponentEditor component={component} homeUrl={basePath} />
+            }
+          />
+        ))}
+        <Route
+          path={basePath}
+          element={
+            <ComponentList
+              basePath={basePath}
+              subsectionTitle={subsection.title}
+              components={components}
+            />
+          }
         />
-      ) : (
-        <ComponentEditor
-          handleCancelEdit={handleCancelEdit}
-          component={getComponentDataFromId(openComponentId)}
-        />
-      )}
-    </>
+      </Routes>
+    </Router>
   );
 };
 
