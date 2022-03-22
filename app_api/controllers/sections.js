@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const caseChange = require('../../utilities/caseChange');
 const SectionModel = mongoose.model('Section');
 const staticLocalDb = require('../models/staticLocalDb');
+const ObjectId = mongoose.ObjectId;
 
 const getSections = (req, res) => {
   const fields = req.query.fields;
@@ -83,7 +84,49 @@ const getSubsection = async (req, res) => {
 };
 
 const editComponent = async (req, res) => {
-  res.status(200).json({ message: 'editComponent is live. Hooray!' });
+  const urlParams = {
+    sectionTitle: req.params.sectiontitle,
+    subsectionTitle: req.params.subsectiontitle,
+    componentId: req.params.componentid,
+  };
+
+  const requestBody = {
+    title: req.body.title,
+    attributes: JSON.parse(req.body.attributes),
+  };
+
+  // Clean submitted attributes of empty attributes
+  requestBody.attributes = requestBody.attributes.filter(
+    (attribute) => attribute !== ''
+  );
+
+  try {
+    const section = await SectionModel.findSectionByKebabTitle(
+      urlParams.sectionTitle
+    ).exec();
+
+    if (!section) return res.status(404).json({ Error: 'section not found' });
+
+    const formattedSubsectionTitle = caseChange.toSpacedLowerCase(
+      urlParams.subsectionTitle
+    );
+    const subsection = section.subsections.find(
+      (subsection) => subsection.title === formattedSubsectionTitle
+    );
+    const component = subsection.components.find((component) => {
+      const stringyComponentId = component._id.toString();
+      return stringyComponentId === urlParams.componentId;
+    });
+    component.attributes = requestBody.attributes;
+    component.title = requestBody.title;
+
+    await section.save();
+    res.status(204).json(component);
+  } catch (err) {
+    res.status(404).json({ Error: err });
+  }
+
+  // res.status(200).json({ message: 'editComponent is live. Hooray!' });
 };
 
 /*
