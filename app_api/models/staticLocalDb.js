@@ -36,7 +36,7 @@ const array = [
           },
           {
             title: 'battery in off position',
-            attributes: ['ensured engine will not be started'],
+            attributes: ['ensures engine will not be started'],
           },
         ],
       },
@@ -71,7 +71,7 @@ const array = [
             attributes: [SI],
           },
           {
-            title: 'air conditioner compressor i',
+            title: 'air conditioner compressor 1',
             attributes: [SI, Blt, BP],
           },
           {
@@ -79,7 +79,7 @@ const array = [
             attributes: [SI, Blt, BP],
           },
           {
-            title: 'air conditioner compressor ii',
+            title: 'air conditioner compressor 2',
             attributes: [SI, Blt, BP],
           },
           {
@@ -113,7 +113,11 @@ const array = [
           },
           {
             title: 'transmission fluid dipstick',
-            attributes: ['check for fluid', 'procedure to check fluid'],
+            attributes: [
+              'transmission fluid present',
+              'no particles in fluid',
+              'engine must be idling to check levels',
+            ],
           },
           {
             title: 'two filters',
@@ -434,7 +438,7 @@ const array = [
             ],
           },
           {
-            title: 'air tank i & ii',
+            title: 'air tank 1 and 2',
             attributes: [
               'are approaching similar pressure',
               'are gradually rising with engine on',

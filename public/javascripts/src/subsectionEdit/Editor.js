@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import ComponentEditor from './ComponentEditor';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -39,7 +38,6 @@ const Editor = ({ data }) => {
   const origin = window.location.origin;
   const path = window.location.pathname;
   const basePath = path.split('/').slice(0, 5).join('/');
-  const baseUrl = origin + basePath;
 
   return (
     <Router>
@@ -49,7 +47,11 @@ const Editor = ({ data }) => {
             key={component._id}
             path={`${basePath}/${component._id}`}
             element={
-              <ComponentEditor component={component} homeUrl={basePath} />
+              <ComponentEditor
+                originUrl={origin}
+                component={component}
+                editorHomePath={basePath}
+              />
             }
           />
         ))}

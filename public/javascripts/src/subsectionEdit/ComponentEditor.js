@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 
-const ComponentEditor = ({ component, homeUrl }) => {
+const ComponentEditor = ({ component, editorHomePath, originUrl }) => {
   const [componentInputTitle, setComponentInputTitle] = useState(
     component.title
   );
@@ -35,6 +35,45 @@ const ComponentEditor = ({ component, homeUrl }) => {
     let newArr = attributeCopy.slice(0, index);
     newArr.push(...attributeCopy.slice(index + 1, length));
     setComponentAttributeArray(newArr);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const path = window.location.pathname;
+    const subsectionPath = path.split('/').slice(0, 3).join('/');
+    const subsectionUrl = `${originUrl}${subsectionPath}`;
+    const apiUrl = `${originUrl}/api${path}`;
+    const userJwt = window.localStorage.getItem('userJwt');
+
+    const config = {
+      headers: {
+        authorization: `Bearer ${userJwt}`,
+      },
+    };
+
+    axios({
+      method: 'post',
+      url: apiUrl,
+      data: {
+        title: componentInputTitle,
+        attributes: JSON.stringify(componentAttributeArray),
+      },
+      headers: {
+        authorization: `Bearer ${userJwt}`,
+      },
+    })
+      .then(() => {
+        window.location.replace(subsectionUrl);
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log('Response error:', err.response);
+        } else if (err.request) {
+          console.log('Request error:', err.request);
+        } else {
+          console.log('Error:', err.message);
+        }
+      });
   };
 
   return (
@@ -100,10 +139,11 @@ const ComponentEditor = ({ component, homeUrl }) => {
           type="submit"
           style={{ marginRight: '.5rem' }}
           className="editor-btn btn-success"
+          onClick={handleSubmit}
         >
           Save changes
         </Button>
-        <Link to={homeUrl}>
+        <Link to={editorHomePath}>
           <Button className="editor-btn btn-warning">Cancel edit</Button>
         </Link>
       </div>

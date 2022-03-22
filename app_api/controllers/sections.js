@@ -90,6 +90,8 @@ const editComponent = async (req, res) => {
     componentId: req.params.componentid,
   };
 
+  console.log(req.body.attributes);
+
   const requestBody = {
     title: req.body.title,
     attributes: JSON.parse(req.body.attributes),
